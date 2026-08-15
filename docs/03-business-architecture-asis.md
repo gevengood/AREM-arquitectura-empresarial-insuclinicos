@@ -1,6 +1,6 @@
 # Business Architecture AS-IS
 
-## Mapa de procesos
+## Mapa de procesos (REHACER SANTIAGO SI APLICA)
 
 ```mermaid
 flowchart LR
@@ -39,7 +39,7 @@ flowchart LR
     registros --> facturacion
 ```
 
-## Cadena de valor AS-IS
+## Cadena de valor AS-IS (REHACER SANTIAGO SI APLICA)
 
 ```mermaid
 flowchart LR
@@ -62,7 +62,7 @@ flowchart LR
     factura --> cartera["Cartera y pago"]
 ```
 
-## Catálogo de capacidades
+## Catálogo de capacidades (REHACER SANTIAGO SI APLICA)
 
 | Dominio | Capacidad | Descripción AS-IS | Procesos relacionados |
 |---|---|---|---|
@@ -77,7 +77,7 @@ flowchart LR
 | Financiero-administrativo | Facturar y gestionar cartera | Emitir facturas electrónicas y gestionar cuentas por cobrar | Facturación y cartera |
 | Gobierno | Administrar operación | Coordinar, validar información y tomar decisiones operativas | Direccionamiento y administración |
 
-## 4.4 Mapa de actores e interacciones
+## Mapa de actores e interacciones (REHACER EN DRAW.IO SANTIAGO)
 
 ```mermaid
 flowchart TB
@@ -110,7 +110,7 @@ flowchart TB
 
 ## BPMN descriptivo AS-IS — Gestión y cumplimiento de pedido
 
-> El siguiente modelo se presenta en Mermaid como representación documentable del BPMN. En la versión gráfica final se recomienda dibujarlo en Bizagi Modeler, Draw.io o una herramienta BPMN con eventos, tareas, compuertas y carriles.
+> El siguiente modelo se presenta en Mermaid como representación documentable del BPMN. En la versión gráfica final se recomienda dibujarlo en Bizagi Modeler, Draw.io o una herramienta BPMN con eventos, tareas, compuertas y carriles. REACHER EN DRAW.IO (SANTIAGO)
 
 ```mermaid
 flowchart TB
