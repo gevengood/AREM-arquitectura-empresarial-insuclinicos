@@ -27,7 +27,7 @@ El modelo de datos representa las entidades de negocio identificadas durante el 
 | Pago / Cartera | Cuenta por cobrar, pago recibido y estado de recaudo | Plataforma de facturación y Excel | Administración / Cartera |
 | Empleado / Responsable | Persona que realiza o valida actividades operativas | Documentación administrativa | Gerencia / Administración |
 
-## Modelo lógico de datos AS-IS
+## Modelo lógico de datos AS-IS (SANTIAGO, PASAR ESTO A DRAW.IO)
 
 ```mermaid
 erDiagram
@@ -161,7 +161,7 @@ erDiagram
     }
 ```
 
-## Flujo de información AS-IS
+## Flujo de información AS-IS (SANTIAGO, PASAR ESTO A DRAW.IO)
 
 ```mermaid
 flowchart LR
