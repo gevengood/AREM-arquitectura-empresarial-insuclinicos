@@ -5,7 +5,7 @@ Insuclínicos Ltda. — Fabricación y comercialización de prendas e insumos m�
 
 ## 👥 Integrantes del equipo
 - Jorge Steven Doncel Bejarano, jorgedobe@unisabana.ecu.co, gevengood 
-- David Santiago Buendia Londoño, davidbulo@unisabana.edu.co, usariogithub 
+- David Santiago Buendia Londoño, davidbulo@unisabana.edu.co, Santiagoob7
 
 ## 🗺️ Mapa conceptual de alto nivel
 
