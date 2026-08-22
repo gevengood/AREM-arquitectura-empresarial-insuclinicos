@@ -56,7 +56,7 @@ Empresa dedicada a la fabricación y comercialización de prendas e insumos dese
 ## Equipo
 
 - Jorge Steven Doncel Bejarano — [gevengood](https://github.com/gevengood)
-- [Nombre completo] — [usuario GitHub]
+- David Santiago Buendia Londoño — [Santiagoob7](https://github.com/Santiagoob7)
 
 ## Confidencialidad
 
