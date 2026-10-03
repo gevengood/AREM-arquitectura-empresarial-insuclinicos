@@ -1,0 +1,89 @@
+<mxfile host="app.diagrams.net" modified="2026-10-03T04:00:00.000Z" agent="Mozilla/5.0" version="24.0.0" type="device">
+  <diagram id="insuclinicos-infra-tobe" name="Infraestructura TO-BE Insuclinicos">
+    <mxGraphModel dx="1422" dy="850" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="title" value="Insuclínicos Ltda. — Arquitectura de Tecnología e Infraestructura TO-BE (Extensión Mapa Taller 4)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="100" y="15" width="1100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Eliminación del SPOF en disco duro local (Excel) mediante Nube Gestionada SaaS/PaaS, Respaldo 3-2-1, Terminal en Planta y Controles STRIDE (Taller 5)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=2;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="100" y="42" width="1100" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- Zona 1: Nube Pública y Servicios SaaS/PaaS (TO-BE) -->
+        <mxCell id="z_cloud" value="Zona 1: Nube Pública y Plataforma Cloud Gestionada (TO-BE — Alta Disponibilidad y Seguridad)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#EBF8FF;strokeColor=#2B6CB0;strokeWidth=2;fontStyle=1;fontSize=13;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="50" y="80" width="1200" height="260" as="geometry" />
+        </mxCell>
+
+        <mxCell id="n_wa" value="Servidores Meta / Correo&#xa;(WhatsApp Business / Email)&#xa;[SaaS Externo]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#718096;strokeColor=#4A5568;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="z_cloud">
+          <mxGeometry x="30" y="55" width="200" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="n_dian" value="Plataforma de Facturación&#xa;Electrónica (DIAN)&#xa;[SaaS Externo]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#718096;strokeColor=#4A5568;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="z_cloud">
+          <mxGeometry x="30" y="155" width="200" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="n_crm" value="NUEVO: Nodo de Aplicación CRM/ERP Ligero&#xa;(Odoo / Dolibarr Cloud PaaS)&#xa;[Servidor Web Linux Gestionado]&#xa;• Control STRIDE: HTTPS/TLS 1.3 + Firewall WAF&#xa;• Control STRIDE T1/T6: Autenticación nominal RBAC&#xa;• Control STRIDE T2: Validación de reglas de negocio" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E8B57;strokeColor=#1C5C38;fontColor=#FFFFFF;fontStyle=1;align=left;spacingLeft=10;" vertex="1" parent="z_cloud">
+          <mxGeometry x="280" y="50" width="300" height="185" as="geometry" />
+        </mxCell>
+
+        <mxCell id="n_db" value="NUEVO: Base de Datos Relacional Gestionada&#xa;(PostgreSQL Cloud Multi-AZ)&#xa;[Reemplaza: Disco Duro Local con Archivos Excel]&#xa;• Cierra SPOF Crítico (Taller 4) y Bloqueo Concurrente&#xa;• Control STRIDE T3: Tablas de Auditoría Inmutables&#xa;• Control STRIDE T4: Cifrado en reposo AES-256" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#2E8B57;strokeColor=#1C5C38;fontColor=#FFFFFF;fontStyle=1;align=left;spacingLeft=10;" vertex="1" parent="z_cloud">
+          <mxGeometry x="620" y="50" width="290" height="185" as="geometry" />
+        </mxCell>
+
+        <mxCell id="n_bak" value="NUEVO: Almacenamiento de Backups 3-2-1&#xa;(Bóveda Cloud Secundaria Inmutable)&#xa;[Object Storage S3 / Backups Diarios]&#xa;• Cierra Amenaza T5 (DoS / Ransomware)&#xa;• Cumple ISO 27001 (A.8.13 Copias de seguridad)&#xa;• Retención 30 días + Prueba trimestral" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#2B6CB0;strokeColor=#1A365D;fontColor=#FFFFFF;fontStyle=1;align=left;spacingLeft=10;" vertex="1" parent="z_cloud">
+          <mxGeometry x="945" y="50" width="235" height="185" as="geometry" />
+        </mxCell>
+
+        <!-- Zona 2: Red Local Oficina Administrativa (LAN) -->
+        <mxCell id="z_lan" value="Zona 2: Red Local Oficina Administrativa — Sede Bogotá (LAN endurecida con controles de endpoint)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#F7FAFC;strokeColor=#4A5568;strokeWidth=2;fontStyle=1;fontSize=13;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="50" y="380" width="1200" height="220" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lan_router" value="Router / Firewall ISP + Red Wi-Fi WPA3&#xa;[Gateway Local con Segmentación de Red Invitados vs Operación]&#xa;(Con Contingencia Datos Móviles 4G/5G ante caída de ISP)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4A5568;strokeColor=#2D3748;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="z_lan">
+          <mxGeometry x="40" y="65" width="270" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="pc_ventas" value="PC Ventas y Administración (Windows 11)&#xa;[Cliente Ligero Navegador Web HTTPS]&#xa;• NUEVO Control T1: Cuentas nominales separadas + Bloqueo 5 min&#xa;• NUEVO Control T4: Restricción USB y sin datos críticos en C:\&#xa;• Acceso a CRM/ERP y Facturación DIAN" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#2E6295;fontColor=#FFFFFF;fontStyle=1;align=left;spacingLeft=10;" vertex="1" parent="z_lan">
+          <mxGeometry x="370" y="50" width="380" height="140" as="geometry" />
+        </mxCell>
+
+        <mxCell id="pc_alm" value="PC Almacén y Control de Inventario (Windows 11)&#xa;[Cliente Ligero Navegador Web HTTPS]&#xa;• NUEVO Control T1/T6: Rol Almacén con privilegio mínimo&#xa;• Sin carpetas SMB compartidas abiertas&#xa;• Registro de recepción de rollos SMS y lotes INVIMA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#2E6295;fontColor=#FFFFFF;fontStyle=1;align=left;spacingLeft=10;" vertex="1" parent="z_lan">
+          <mxGeometry x="800" y="50" width="370" height="140" as="geometry" />
+        </mxCell>
+
+        <!-- Zona 3: Planta de Producción y Despacho -->
+        <mxCell id="z_planta" value="Zona 3: Planta de Producción y Despacho (TO-BE — Conectada Digitalmente sin Transporte Manual de Papel)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#F0FFF4;strokeColor=#2E8B57;strokeWidth=2;fontStyle=1;fontSize=13;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="50" y="640" width="1200" height="210" as="geometry" />
+        </mxCell>
+
+        <mxCell id="tab_planta" value="NUEVO: Tablet / Terminal Web en Planta de Producción&#xa;[Dispositivo Industrial Wi-Fi WPA3 — Navegador HTTPS con Rol Planta]&#xa;• Reemplaza el transporte manual de hojas de papel entre Oficina y Planta (Cierra Riesgo Taller 4)&#xa;• Consulta en vivo de Órdenes de Producción aprobadas&#xa;• Asociación directa del Lote de Tela SMS a la Orden y generación de Remisión Digital (Cumple INVIMA)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E8B57;strokeColor=#1C5C38;fontColor=#FFFFFF;fontStyle=1;align=left;spacingLeft=10;" vertex="1" parent="z_planta">
+          <mxGeometry x="40" y="45" width="520" height="140" as="geometry" />
+        </mxCell>
+
+        <mxCell id="maq_sms" value="Área de Corte y Confección de Tela SMS&#xa;[Operación Física de Manufactura]&#xa;Guiada por Órdenes Digitales en Pantalla" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#718096;strokeColor=#4A5568;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="z_planta">
+          <mxGeometry x="610" y="65" width="260" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="area_desp" value="Zona de Control de Calidad, Empaque y Despacho&#xa;[Verificación de Lote INVIMA y Remisión]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#718096;strokeColor=#4A5568;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="z_planta">
+          <mxGeometry x="910" y="65" width="260" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Edges -->
+        <mxCell id="e_r_crm" value="HTTPS / TLS 1.3 (Puerto 443)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#2E8B57;fontStyle=1;" edge="1" parent="1" source="lan_router" target="n_crm" />
+        <mxCell id="e_r_wa" value="HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=#4A5568;" edge="1" parent="1" source="lan_router" target="n_wa" />
+        <mxCell id="e_r_dian" value="HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=#4A5568;" edge="1" parent="1" source="lan_router" target="n_dian" />
+        <mxCell id="e_crm_db" value="Conexión Interna Cifrada (VPC)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#1C5C38;" edge="1" parent="1" source="n_crm" target="n_db" />
+        <mxCell id="e_db_bak" value="Snapshot Diario Automático 3-2-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=2;strokeColor=#2B6CB0;" edge="1" parent="1" source="n_db" target="n_bak" />
+        <mxCell id="e_ven_r" value="LAN Ethernet / Wi-Fi" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#2B6CB0;" edge="1" parent="1" source="pc_ventas" target="lan_router" />
+        <mxCell id="e_alm_r" value="LAN Ethernet / Wi-Fi" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#2B6CB0;" edge="1" parent="1" source="pc_alm" target="lan_router" />
+        <mxCell id="e_tab_r" value="Wi-Fi Seguro WPA3 (HTTPS en tiempo real)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#2E8B57;fontStyle=1;" edge="1" parent="1" source="tab_planta" target="lan_router" />
+        <mxCell id="e_tab_maq" value="Orden de corte y lote asignado" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#2E8B57;" edge="1" parent="1" source="tab_planta" target="maq_sms" />
+        <mxCell id="e_maq_desp" value="Prendas quirúrgicas confeccionadas" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#4A5568;" edge="1" parent="1" source="maq_sms" target="area_desp" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

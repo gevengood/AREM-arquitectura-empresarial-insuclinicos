@@ -1,38 +1,60 @@
+<!--
+Puerta de entrada del repositorio del proyecto con el cliente real (Insuclínicos Ltda.),
+estructurada siguiendo la guía oficial AREM-Proyecto-Cliente de la Universidad de La Sabana.
+-->
+
 # Arquitectura Empresarial — Insuclínicos Ltda.
 
-## Descripción
-
-Este repositorio contiene el análisis de Arquitectura Empresarial de **Insuclínicos Ltda.**, empresa dedicada a la fabricación y comercialización de prendas e insumos médicos desechables en tela quirúrgica.
-
-El proyecto documenta el estado actual (**AS-IS**) de la organización, con énfasis en la relación entre gestión comercial, pedidos, inventario, compras, producción, control de calidad, despacho, facturación y cartera.
-
-La problemática principal identificada es la fragmentación de la información operativa entre Excel, WhatsApp, correo electrónico, registros internos y documentos físicos, lo que dificulta la trazabilidad de los pedidos, el control de inventario y la generación oportuna de indicadores.
+**Equipo:** Grupo 8 · **Jorge Steven Doncel Bejarano** ([`@gevengood`](https://github.com/gevengood)), **David Santiago Buendia Londoño** ([`@Santiagoob7`](https://github.com/Santiagoob7))  
+**Curso:** Arquitectura Empresarial (AREM) — Universidad de La Sabana  
+**Cliente Real:** Insuclínicos Ltda. (Bogotá D.C., Colombia · Contacto: Santiago Martínez — Representante Legal)
 
 ---
 
-## Objetivo del proyecto
+## 📌 En una frase
 
-Analizar la arquitectura empresarial AS-IS de Insuclínicos Ltda., centrada en el macro-proceso de Gestión y Cumplimiento de Pedido, y proponer conceptualmente una arquitectura objetivo que mejore la trazabilidad de pedidos, el control de inventario y la integración de información entre las áreas de la empresa.
+Unificamos la gestión de pedidos, el inventario de tela quirúrgica SMS, las órdenes de planta y la facturación de **Insuclínicos Ltda.** en una plataforma web ligera en la nube, para eliminar el caos de los archivos de Excel desconectados, proteger la información contra pérdidas y asegurar la trazabilidad sanitaria exigida por el INVIMA.
 
-> **Nota de alcance:** Este es un ejercicio académico del curso AREM (Arquitectura Empresarial) — Universidad de La Sabana. No constituye una implementación real ni un compromiso contractual con Insuclínicos Ltda. El único artefacto técnico funcional previsto en el semestre es un **Proof of Concept (POC)** acotado a un componente puntual de la arquitectura propuesta, a entregar al cierre del semestre. El resto del análisis (diagnóstico, visión, modelos) es documental y conceptual.
+## 🩺 El problema
+
+Hoy la operación diaria de Insuclínicos Ltda. (6 empleados atendiendo a ~40 clínicas y spas) depende de mensajes de WhatsApp, hojas de cálculo de Excel guardadas en computadores locales que no se conectan entre sí y órdenes de producción en papel. Esto provoca bloqueos diarios cuando dos personas intentan abrir el mismo archivo, pérdida de **~6 horas semanales** pasando datos a mano hacia la facturación electrónica, riesgo de perder toda la información si falla un disco duro, e imposibilidad de rastrear rápidamente qué lote de rollo quirúrgico se usó en cada entrega ante una auditoría del INVIMA.
+
+## 💡 Lo que proponemos
+
+- **Centralizar pedidos, clientes e inventario en un solo sistema web en la nube** (CRM/ERP ligero para PyMEs), de modo que al aprobar un pedido se reserve automáticamente el material disponible sin bloqueos de lectura/escritura ni doble digitación hacia la facturación electrónica.
+- **Conectar digitalmente la planta de confección y garantizar la trazabilidad sanitaria INVIMA**, registrando desde una Tablet en planta el lote de tela quirúrgica SMS usado en cada orden e imprimiéndolo en la remisión digital de la clínica.
+- **Blindar la continuidad y el cumplimiento legal desde el primer mes**, implementando copias de seguridad automáticas diarias en la nube, cuentas de usuario individuales por rol y aviso de privacidad de datos personales (Ley 1581) en el canal de WhatsApp Business.
+- **Ejecutar un plan gradual en 3 fases (12 semanas)** dentro del presupuesto de la empresa (`~ $2.2M COP/año`), empezando por las mejoras rápidas de seguridad y respaldo en las primeras 2 semanas.
+
+## 🗺️ Cómo se implementa
+
+Ver el **[Resumen Ejecutivo (`resumen-ejecutivo.md`)](resumen-ejecutivo.md)** — ahí está el detalle de beneficios esperados, evolución de capacidades del negocio, fases de implementación y tiempos, en un solo documento pensado para la gerencia de Insuclínicos Ltda.
 
 ---
 
-## Alcance — Corte 1 (AS-IS Completo)
+## 📂 Si quiere ver el detalle técnico completo
 
-Este repositorio consolida todos los entregables correspondientes al **Corte 1** según el marco metodológico TOGAF ADM adaptado al curso:
+Todo el análisis que sustenta esta propuesta está documentado carpeta por carpeta (Fases `00` a `07` consolidadas de los Cortes 1 y 2), siguiendo la metodología del curso:
 
-1. **Preliminary & Architecture Vision:** Contexto, ficha de caracterización, visión de arquitectura y registro metodológico.
-2. **Business Architecture (BPMN):** Modelado de proceso de negocio AS-IS del cliente enfocado en producción y cumplimiento de pedidos.
-3. **Information Systems Architecture (Datos y Contexto):** Modelo de datos AS-IS (ERD) y Diagrama de Contexto de negocio del cliente.
+| Carpeta | Qué contiene | Entregables principales |
+|---|---|---|
+| **[`00-preliminary-vision/`](00-preliminary-vision/)** | Contexto del cliente, problemas, objetivos estratégicos y visión de la solución | [Ficha de caracterización](00-preliminary-vision/ficha-caracterizacion.md) · [Visión de arquitectura](00-preliminary-vision/vision.md) · [Notas](00-preliminary-vision/notas.md) · [Referencias](00-preliminary-vision/referencias.md) |
+| **[`01-bpmn/`](01-bpmn/)** | Cómo funciona hoy el proceso de negocio de gestión y cumplimiento de pedidos | [Modelo BPMN (`modelo-final.drawio`)](01-bpmn/modelo-final.drawio) · [Informe BPMN](01-bpmn/informe.md) · [Referencias](01-bpmn/referencias.md) |
+| **[`02-modelo-informacion/`](02-modelo-informacion/)** | Qué información maneja el negocio (entidades) y cómo fluye entre áreas | [Modelo ER (`modelo-final-er.drawio`)](02-modelo-informacion/modelo-final-er.drawio) · [Diagrama de Contexto (`diagrama-contexto-final.drawio`)](02-modelo-informacion/diagrama-contexto-final.drawio) · [Informe](02-modelo-informacion/informe.md) · [Referencias](02-modelo-informacion/referencias.md) |
+| **[`03-arquitectura-c4/`](03-arquitectura-c4/)** | Los sistemas actuales (AS-IS) modelados en contexto (C1) y contenedores (C2) | [Contexto C1 (`c1-contexto-final.drawio`)](03-arquitectura-c4/c1-contexto-final.drawio) · [Contenedores C2 (`c2-contenedores-final.drawio`)](03-arquitectura-c4/c2-contenedores-final.drawio) · [Informe C4](03-arquitectura-c4/informe.md) · [Referencias](03-arquitectura-c4/referencias.md) |
+| **[`04-infraestructura/`](04-infraestructura/)** | Dónde corre todo hoy (Nube, Red Local LAN, Planta) y qué riesgos técnicos tiene | [Mapa de Infraestructura (`mapa-final.drawio`)](04-infraestructura/mapa-final.drawio) · [Informe de Infraestructura](04-infraestructura/informe.md) · [Referencias](04-infraestructura/referencias.md) |
+| **[`05-seguridad-stride/`](05-seguridad-stride/)** | Evaluación de amenazas de seguridad de la información con metodología STRIDE (`T1`–`T6`) | [Tabla STRIDE (`tabla-stride-cliente.xlsx`)](05-seguridad-stride/tabla-stride-cliente.xlsx) · [Informe de Seguridad](05-seguridad-stride/informe.md) · [Referencias](05-seguridad-stride/referencias.md) |
+| **[`06-normatividad/`](06-normatividad/)** | Auditoría de cumplimiento legal y normativo (Ley 1581, INVIMA Dec. 4725, ISO 27001) | [Checklist Normativo (`checklist-cliente.xlsx`)](06-normatividad/checklist-cliente.xlsx) · [Informe de Normatividad](06-normatividad/informe.md) · [Referencias](06-normatividad/referencias.md) |
+| **[`07-opportunities-solutions/`](07-opportunities-solutions/)** | La arquitectura objetivo (TO-BE), matriz de brechas, matriz de decisión ponderada y paquetes de trabajo | [Documento Mejora TO-BE (`mejora-arquitectura.md`)](07-opportunities-solutions/mejora-arquitectura.md) · [Informe (`informe.md`)](07-opportunities-solutions/informe.md) · [TO-BE Aplicaciones (`to-be-aplicaciones-final.drawio`)](07-opportunities-solutions/to-be-aplicaciones-final.drawio) · [TO-BE Tecnología (`to-be-tecnologia-final.drawio`)](07-opportunities-solutions/to-be-tecnologia-final.drawio) · [Matriz de Brechas (`matriz-brechas.xlsx`)](07-opportunities-solutions/matriz-brechas.xlsx) · [Referencias](07-opportunities-solutions/referencias.md) |
 
 ---
 
-## Estructura del repositorio
+## 🌳 Árbol de Estructura del Repositorio
 
 ```text
-.
-├── README.md
+AREM-arquitectura-empresarial-insuclinicos/
+├── README.md                                  # ⭐ Puerta de entrada ejecutiva y técnica
+├── resumen-ejecutivo.md                       # Síntesis de negocio, beneficios y fases de implementación
 ├── 00-preliminary-vision/
 │   ├── ficha-caracterizacion.md
 │   ├── vision.md
@@ -42,57 +64,54 @@ Este repositorio consolida todos los entregables correspondientes al **Corte 1**
 │   ├── modelo-final.drawio
 │   ├── informe.md
 │   └── referencias.md
-└── 02-modelo-informacion/
-    ├── modelo-final-er.drawio
-    ├── diagrama-contexto-final.drawio
+├── 02-modelo-informacion/
+│   ├── modelo-final-er.drawio
+│   ├── diagrama-contexto-final.drawio
+│   ├── informe.md
+│   └── referencias.md
+├── 03-arquitectura-c4/
+│   ├── c1-contexto-final.drawio
+│   ├── c2-contenedores-final.drawio
+│   ├── informe.md
+│   └── referencias.md
+├── 04-infraestructura/
+│   ├── mapa-final.drawio
+│   ├── informe.md
+│   └── referencias.md
+├── 05-seguridad-stride/
+│   ├── tabla-stride-cliente.xlsx
+│   ├── informe.md
+│   └── referencias.md
+├── 06-normatividad/
+│   ├── checklist-cliente.xlsx
+│   ├── informe.md
+│   └── referencias.md
+└── 07-opportunities-solutions/
+    ├── to-be-aplicaciones-final.drawio
+    ├── to-be-tecnologia-final.drawio
+    ├── matriz-brechas.xlsx
+    ├── mejora-arquitectura.md
     ├── informe.md
     └── referencias.md
 ```
 
 ---
 
-## Entregables y Documentos
+## 🔗 Repositorios Individuales de Talleres (Trabajo en Clase + Cliente)
 
-### 1. Preliminary & Architecture Vision (`00-preliminary-vision/`)
-| Documento | Contenido |
-|---|---|
-| [Ficha de caracterización](00-preliminary-vision/ficha-caracterizacion.md) | Contexto de la empresa, objetivos estratégicos, problemas, procesos, restricciones y contacto |
-| [Visión de arquitectura](00-preliminary-vision/vision.md) | Mapa conceptual de alto nivel, beneficios esperados trazados a los objetivos estratégicos, alcance y justificación |
-| [Notas de trabajo](00-preliminary-vision/notas.md) | Registro de trabajo colaborativo, decisiones de modelado y compromisos del equipo |
-| [Referencias de la visión](00-preliminary-vision/referencias.md) | Fuentes bibliográficas y fuentes primarias consultadas |
-
-### 2. Business Architecture — BPMN (`01-bpmn/`)
-| Entregable | Contenido |
-|---|---|
-| [Modelo BPMN del cliente (`modelo-final.drawio`)](01-bpmn/modelo-final.drawio) | Diagrama BPMN 2.0 editable con carriles funcionales, compuertas lógicas y eventos de excepción |
-| [Informe técnico BPMN](01-bpmn/informe.md) | Descripción metodológica de 5 pasos, análisis del proceso de producción y decisiones de diseño |
-| [Referencias BPMN](01-bpmn/referencias.md) | Estándares OMG BPMN 2.0 y referencias de soporte |
-
-### 3. Information Systems Architecture — Datos y Contexto (`02-modelo-informacion/`)
-| Entregable | Contenido |
-|---|---|
-| [Modelo Entidad-Relación (`modelo-final-er.drawio`)](02-modelo-informacion/modelo-final-er.drawio) | Modelo ER lógico editable con 8 entidades, atributos, claves primarias y relaciones de negocio |
-| [Diagrama de Contexto (`diagrama-contexto-final.drawio`)](02-modelo-informacion/diagrama-contexto-final.drawio) | Diagrama de contexto editable mostrando actores externos, herramientas internas y flujos de información |
-| [Informe técnico de Información](02-modelo-informacion/informe.md) | Explicación del modelo ERD, metodología de 4 pasos y flujos del diagrama de contexto |
-| [Referencias de Información](02-modelo-informacion/referencias.md) | Literatura de bases de datos relacionales y referencias de soporte |
+- **Taller 1 (BPMN):** [`gevengood/taller-01-bpmn`](https://github.com/gevengood/taller-01-bpmn)
+- **Taller 2 (Modelo de Información):** [`gevengood/taller-02-modelo-informacion`](https://github.com/gevengood/taller-02-modelo-informacion)
+- **Taller 3 (Arquitectura C4):** [`Santiagoob7/AREM-Taller_3_Arquitectura_C4`](https://github.com/Santiagoob7/AREM-Taller_3_Arquitectura_C4)
+- **Taller 4 (Infraestructura):** [`Santiagoob7/AREM-Taller_4_Infraestructura`](https://github.com/Santiagoob7/AREM-Taller_4_Infraestructura)
+- **Taller 5 (Seguridad STRIDE):** [`Santiagoob7/Taller-5-Evaluaci-n-de-Seguridad-con-STRIDE`](https://github.com/Santiagoob7/Taller-5-Evaluaci-n-de-Seguridad-con-STRIDE)
+- **Taller 6 (Normatividad):** [`gevengood/taller-06-normatividad`](https://github.com/gevengood/taller-06-normatividad)
+- **Taller 7 (Opportunities & Solutions):** [`gevengood/taller-07-opportunities-solutions`](https://github.com/gevengood/taller-07-opportunities-solutions)
 
 ---
 
-## Cliente
+## 👥 Contacto
 
-* **Insuclínicos Ltda.**
-* Empresa dedicada a la fabricación y comercialización de prendas e insumos desechables elaborados principalmente en tela quirúrgica, dirigidos a clínicas, consultorios, spas y organizaciones que requieren protección en procedimientos médicos y estéticos.
-* **Contacto:** Santiago Martínez — Representante legal.
+- **Jorge Steven Doncel Bejarano** — [`@gevengood`](https://github.com/gevengood) · `jorjuchod@gmail.com`
+- **David Santiago Buendia Londoño** — [`@Santiagoob7`](https://github.com/Santiagoob7)
 
----
-
-## Equipo
-
-* **Jorge Steven Doncel Bejarano** — [gevengood](https://github.com/gevengood)
-* **David Santiago Buendia Londoño** — [Santiagoob7](https://github.com/Santiagoob7)
-
----
-
-## Confidencialidad
-
-La información se utiliza exclusivamente con fines académicos, previa autorización del cliente. Los datos personales, financieros, comerciales y sensibles de Insuclínicos Ltda., sus empleados, clientes y proveedores se omiten o se anonimizan.
+> **Confidencialidad y alcance académico:** La información contenida en este repositorio se utiliza exclusivamente con fines académicos en el curso Arquitectura Empresarial de la Universidad de La Sabana, previa autorización del cliente, con anonimización de datos sensibles y comerciales.

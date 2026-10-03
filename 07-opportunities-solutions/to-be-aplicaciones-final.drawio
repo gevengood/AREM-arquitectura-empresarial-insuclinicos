@@ -1,0 +1,98 @@
+<mxfile host="app.diagrams.net" modified="2026-10-03T03:55:00.000Z" agent="Mozilla/5.0" version="24.0.0" type="device">
+  <diagram id="insuclinicos-c2-tobe" name="C2 Contenedores TO-BE Insuclinicos">
+    <mxGraphModel dx="1422" dy="850" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="920" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title & Legend -->
+        <mxCell id="title" value="Insuclínicos Ltda. — Arquitectura de Aplicaciones TO-BE (Extensión Diagrama C2 de Contenedores - Taller 3)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="120" y="15" width="1040" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Reemplazo de hojas Excel aisladas (Pedidos e Inventario) y planillas en papel por un CRM/ERP Ligero Web Centralizado con controles STRIDE y trazabilidad INVIMA" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=2;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="120" y="42" width="1040" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- Actors (Top) -->
+        <mxCell id="act_cli" value="Cliente&#xa;(Clínica / Centro Estético / Spa)&#xa;[Persona Externa]" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#08427B;strokeColor=#052E56;fontColor=#1A202C;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="100" width="45" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="act_ven" value="Personal de Ventas y Administración&#xa;(Rol Comercial / Facturación)&#xa;[Usuario Interno - Sesión Nominal]" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#08427B;strokeColor=#052E56;fontColor=#1A202C;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="90" width="45" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="act_prod" value="Personal de Producción y Almacén&#xa;(Jefe de Planta / Operarios SMS)&#xa;[Usuario Interno - Sesión Nominal]" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#08427B;strokeColor=#052E56;fontColor=#1A202C;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="780" y="90" width="45" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="act_desp" value="Personal de Despacho&#xa;(Alistamiento y Entrega)&#xa;[Usuario Interno - Sesión Nominal]" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#08427B;strokeColor=#052E56;fontColor=#1A202C;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="90" width="45" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- External Systems (Left & Right) -->
+        <mxCell id="ext_wa" value="WhatsApp Business /&#xa;Correo Corporativo&#xa;[Sistema Externo de Comunicación]&#xa;(Con aviso de privacidad Ley 1581)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#666666;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="310" width="190" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_dian" value="Plataforma de Facturación&#xa;Electrónica (Proveedor DIAN)&#xa;[Sistema Externo SaaS Web]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#666666;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="540" width="190" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- System Boundary: Ecosistema de Gestión Operativa (TO-BE) -->
+        <mxCell id="sys_bound" value="Ecosistema de Gestión Operativa — Insuclínicos Ltda. (TO-BE)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#F0FFF4;strokeColor=#2E8B57;strokeWidth=2;fontStyle=1;fontSize=14;startSize=32;" vertex="1" parent="1">
+          <mxGeometry x="260" y="240" width="990" height="620" as="geometry" />
+        </mxCell>
+
+        <!-- Container 1: Web App CRM/ERP Ligero -->
+        <mxCell id="c_webapp" value="NUEVO: Aplicación Web CRM / ERP Ligero Centralizado (Odoo / Dolibarr Cloud)&#xa;[Contenedor: Aplicación Web Responsiva — HTTPS TLS 1.3 + Autenticación RBAC]" style="swimlane;whiteSpace=wrap;html=1;fillColor=#E6FFFA;strokeColor=#2C7A7B;strokeWidth=2;fontStyle=1;startSize=40;" vertex="1" parent="sys_bound">
+          <mxGeometry x="30" y="50" width="930" height="230" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m_com" value="NUEVO: Módulo Comercial,&#xa;Cotizaciones y Pedidos&#xa;[Reemplaza: Libro de Pedidos Excel]&#xa;• Registro de clientes y pedidos&#xa;• Check obligatorio Habeas Data (Ley 1581)&#xa;• Reserva automática de stock" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E8B57;strokeColor=#1C5C38;fontColor=#FFFFFF;fontStyle=1;align=left;spacingLeft=8;" vertex="1" parent="c_webapp">
+          <mxGeometry x="20" y="55" width="215" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m_inv" value="NUEVO: Módulo de Inventario y&#xa;Trazabilidad de Lotes INVIMA&#xa;[Reemplaza: Libro de Inventario Excel]&#xa;• Kardex transaccional concurrente&#xa;• Trazabilidad Lote Rollo SMS -&gt; Producto&#xa;• Alertas de stock mínimo (Dec. 4725)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E8B57;strokeColor=#1C5C38;fontColor=#FFFFFF;fontStyle=1;align=left;spacingLeft=8;" vertex="1" parent="c_webapp">
+          <mxGeometry x="250" y="55" width="220" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m_prod" value="NUEVO: Módulo de Producción,&#xa;Calidad y Remisiones Digitales&#xa;[Reemplaza: Planillas Físicas en Papel]&#xa;• Órdenes de producción en línea&#xa;• Control de calidad e inspección&#xa;• Remisión digital PDF con Lote INVIMA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E8B57;strokeColor=#1C5C38;fontColor=#FFFFFF;fontStyle=1;align=left;spacingLeft=8;" vertex="1" parent="c_webapp">
+          <mxGeometry x="485" y="55" width="220" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m_sec" value="NUEVO: Módulo de Seguridad&#xa;RBAC y Log de Auditoría&#xa;[Controles STRIDE T1, T2, T3, T6]&#xa;• Usuarios nominales por rol&#xa;• Validación de rangos y precios&#xa;• Bitácora inmutable (quién/cuándo)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2B6CB0;strokeColor=#1A365D;fontColor=#FFFFFF;fontStyle=1;align=left;spacingLeft=8;" vertex="1" parent="c_webapp">
+          <mxGeometry x="720" y="55" width="195" height="150" as="geometry" />
+        </mxCell>
+
+        <!-- Container 2: Conector / Exportador Facturación -->
+        <mxCell id="c_conn" value="NUEVO: Exportador / Conector de Facturación&#xa;[Contenedor: Servicio de Integración CSV/API]&#xa;Genera plantilla estructurada o envío directo sin redigitación manual (Cierra fricción Ventas-DIAN)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E8B57;strokeColor=#1C5C38;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="sys_bound">
+          <mxGeometry x="30" y="330" width="290" height="105" as="geometry" />
+        </mxCell>
+
+        <!-- Container 3: Base de Datos Relacional Centralizada -->
+        <mxCell id="c_db" value="NUEVO: Base de Datos Relacional Centralizada&#xa;[Contenedor: PostgreSQL Gestionado en Cloud — Cifrado AES-256]&#xa;• Fuente única de verdad (Clientes, Pedidos, Lotes SMS, Inventario, Remisiones)&#xa;• Transacciones ACID sin bloqueos de archivo (Cierra Brechas T2, T3, G-01)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#2E8B57;strokeColor=#1C5C38;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="sys_bound">
+          <mxGeometry x="360" y="320" width="320" height="125" as="geometry" />
+        </mxCell>
+
+        <!-- Container 4: Servicio de Backup 3-2-1 -->
+        <mxCell id="c_bak" value="NUEVO: Servicio de Respaldo Automatizado 3-2-1&#xa;[Contenedor: Cloud Object Storage Inmutable]&#xa;• Snapshot diario automático 11:00 PM + retención 30 días&#xa;• Mitiga SPOF de disco local y Ransomware (Cierra T5 e ISO 27001)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#2B6CB0;strokeColor=#1A365D;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="sys_bound">
+          <mxGeometry x="715" y="320" width="245" height="125" as="geometry" />
+        </mxCell>
+
+        <!-- Traceability Note to AS-IS Containers -->
+        <mxCell id="note_asis" value="Trazabilidad explícita con el AS-IS (Taller 3):&#xa;1. «Libro de Pedidos y Cotizaciones [MS Excel]»  ──► Migrado e integrado al Módulo Comercial + BD PostgreSQL.&#xa;2. «Libro de Control de Inventario [MS Excel]»   ──► Migrado e integrado al Módulo de Inventario y Lotes INVIMA + BD PostgreSQL.&#xa;3. «Registros de Calidad y Despacho [Papel]»     ──► Digitalizados en el Módulo de Producción, Calidad y Remisiones Digitales." style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#FFFBEB;strokeColor=#D69E2E;fontColor=#744210;fontStyle=0;align=left;spacingLeft=10;fontSize=11;" vertex="1" parent="sys_bound">
+          <mxGeometry x="30" y="485" width="930" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Relationships -->
+        <mxCell id="r1" value="Solicita cotización / pedido&#xa;y acepta política Ley 1581" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#4A5568;" edge="1" parent="1" source="act_cli" target="ext_wa" />
+        <mxCell id="r2" value="Atiende mensajes y envía&#xa;cotización/remisión PDF" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#4A5568;" edge="1" parent="1" source="act_ven" target="ext_wa" />
+        <mxCell id="r3" value="Registra cliente, cotización&#xa;y pedido [HTTPS + RBAC]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#2E8B57;" edge="1" parent="1" source="act_ven" target="m_com" />
+        <mxCell id="r4" value="Consulta stock, registra lotes&#xa;SMS y órdenes [HTTPS + RBAC]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#2E8B57;" edge="1" parent="1" source="act_prod" target="m_inv" />
+        <mxCell id="r5" value="Registra avance de corte/confección&#xa;y control de calidad [Tablet/PC]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#2E8B57;" edge="1" parent="1" source="act_prod" target="m_prod" />
+        <mxCell id="r6" value="Genera remisión con lote INVIMA&#xa;y confirma despacho [HTTPS]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#2E8B57;" edge="1" parent="1" source="act_desp" target="m_prod" />
+        <mxCell id="r7" value="Lee/Escribe transacciones ACID&#xa;[SQL sobre TLS]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#1C5C38;" edge="1" parent="1" source="c_webapp" target="c_db" />
+        <mxCell id="r8" value="Extrae datos de pedido aprobado" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#1C5C38;" edge="1" parent="1" source="m_com" target="c_conn" />
+        <mxCell id="r9" value="Exporta datos listos sin redigitar&#xa;[HTTPS / CSV Estandarizado]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#2E8B57;" edge="1" parent="1" source="c_conn" target="ext_dian" />
+        <mxCell id="r10" value="Respaldo automático diario&#xa;(Regla 3-2-1 Cifrado)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=2;strokeColor=#2B6CB0;" edge="1" parent="1" source="c_db" target="c_bak" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,113 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="gATWfieoGHsit288sZDA">
+    <mxGraphModel dx="1880" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="V1MWeI0WbCwTK7WP2P7O-1" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;dashed=1;dashPattern=8 8;" value="" vertex="1">
+          <mxGeometry height="290" width="290" x="-430" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="V1MWeI0WbCwTK7WP2P7O-2" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;dashed=1;dashPattern=8 8;" value="" vertex="1">
+          <mxGeometry height="290" width="290" x="-100" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="V1MWeI0WbCwTK7WP2P7O-3" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;dashed=1;dashPattern=8 8;" value="" vertex="1">
+          <mxGeometry height="290" width="290" x="230" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="V1MWeI0WbCwTK7WP2P7O-4" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;Nube Pública / Terceros&lt;/b&gt;." vertex="1">
+          <mxGeometry height="30" width="160" x="-345" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="V1MWeI0WbCwTK7WP2P7O-5" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;b&gt;Red Local (LAN) Oficina Insuclínicos&lt;/b&gt;." vertex="1">
+          <mxGeometry height="40" width="270" x="-80" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="V1MWeI0WbCwTK7WP2P7O-6" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;b&gt;Planta de Producción&lt;/b&gt;." vertex="1">
+          <mxGeometry height="40" width="160" x="310" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="V1MWeI0WbCwTK7WP2P7O-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#FFFFFF,#808080);" value="" vertex="1">
+          <mxGeometry height="60" width="120" x="-360" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="V1MWeI0WbCwTK7WP2P7O-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#000000,#808080);" value="" vertex="1">
+          <mxGeometry height="60" width="120" x="-360" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="V1MWeI0WbCwTK7WP2P7O-20" edge="1" parent="1" source="V1MWeI0WbCwTK7WP2P7O-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="V1MWeI0WbCwTK7WP2P7O-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="V1MWeI0WbCwTK7WP2P7O-21" connectable="0" parent="V1MWeI0WbCwTK7WP2P7O-20" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Tráfico entrante externo (Internet)" vertex="1">
+          <mxGeometry relative="1" x="-0.3647" y="-2" as="geometry">
+            <mxPoint x="16" y="-22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="V1MWeI0WbCwTK7WP2P7O-9" parent="1" style="text;whiteSpace=wrap;html=1;" value="Servidores Meta (WhatsApp)" vertex="1">
+          <mxGeometry height="40" width="130" x="-360" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="V1MWeI0WbCwTK7WP2P7O-10" parent="1" style="text;whiteSpace=wrap;html=1;" value="Nube Plataforma Facturación" vertex="1">
+          <mxGeometry height="40" width="110" x="-355" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="V1MWeI0WbCwTK7WP2P7O-35" edge="1" parent="1" source="V1MWeI0WbCwTK7WP2P7O-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;dashPattern=12 12;" target="V1MWeI0WbCwTK7WP2P7O-15">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-40" y="530" />
+              <mxPoint x="375" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="V1MWeI0WbCwTK7WP2P7O-36" connectable="0" parent="V1MWeI0WbCwTK7WP2P7O-35" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Transporte manual de documentos impresos" vertex="1">
+          <mxGeometry relative="1" x="-0.012" y="1" as="geometry">
+            <mxPoint x="-13" y="11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="V1MWeI0WbCwTK7WP2P7O-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#FFFFFF,#FF3333);" value="&lt;br&gt;PC Almacén⚠️&lt;div&gt;&lt;i style=&quot;text-align: left;&quot;&gt;(Hardware físico sin redundancia)&lt;/i&gt;&lt;span style=&quot;text-align: left;&quot;&gt;.&lt;/span&gt;&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="-70" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="V1MWeI0WbCwTK7WP2P7O-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#FFFFFF,#FF3333);" value="&lt;br&gt;PC Administración / Ventas⚠️&lt;div&gt;&lt;i style=&quot;text-align: left;&quot;&gt;(Hardware físico sin redundancia)&lt;/i&gt;&lt;span style=&quot;text-align: left;&quot;&gt;.&lt;/span&gt;&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="-70" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="V1MWeI0WbCwTK7WP2P7O-14" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=light-dark(#FFFFFF,#FF3333);" value="&lt;br&gt;Disco Duro Local (Archivos Excel)⚠️&lt;div&gt;&lt;br/&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="150" width="130" x="70" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="V1MWeI0WbCwTK7WP2P7O-15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;br&gt;Registros Físicos (Remisiones y Calidad)" vertex="1">
+          <mxGeometry height="100" width="190" x="280" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="V1MWeI0WbCwTK7WP2P7O-17" parent="1" style="text;whiteSpace=wrap;html=1;" value="(Punto único de falla - Sin respaldo en nube)" vertex="1">
+          <mxGeometry height="40" width="130" x="75" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="V1MWeI0WbCwTK7WP2P7O-32" edge="1" parent="1" source="V1MWeI0WbCwTK7WP2P7O-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="V1MWeI0WbCwTK7WP2P7O-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-70" y="240" />
+              <mxPoint x="-130" y="240" />
+              <mxPoint x="-130" y="320" />
+            </Array>
+            <mxPoint x="-70" y="240" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="V1MWeI0WbCwTK7WP2P7O-33" connectable="0" parent="V1MWeI0WbCwTK7WP2P7O-32" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Carga manual de datos (Internet)" vertex="1">
+          <mxGeometry relative="1" x="0.5408" y="3" as="geometry">
+            <mxPoint x="23" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="V1MWeI0WbCwTK7WP2P7O-22" edge="1" parent="1" source="V1MWeI0WbCwTK7WP2P7O-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="V1MWeI0WbCwTK7WP2P7O-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="V1MWeI0WbCwTK7WP2P7O-23" connectable="0" parent="V1MWeI0WbCwTK7WP2P7O-22" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Escritura local (riesgo de sobrescritura)" vertex="1">
+          <mxGeometry relative="1" x="0.14" y="2" as="geometry">
+            <mxPoint x="33" y="-8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="V1MWeI0WbCwTK7WP2P7O-26" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" target="V1MWeI0WbCwTK7WP2P7O-14">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="20" y="400" />
+              <mxPoint x="135" y="400" />
+            </Array>
+            <mxPoint x="20" y="350" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="V1MWeI0WbCwTK7WP2P7O-27" connectable="0" parent="V1MWeI0WbCwTK7WP2P7O-26" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Lectura/Escritura local (cuello de botella por concurrencia)" vertex="1">
+          <mxGeometry relative="1" x="-0.1122" y="-1" as="geometry">
+            <mxPoint x="59" y="9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
