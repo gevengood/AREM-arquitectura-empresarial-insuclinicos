@@ -1,0 +1,96 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Modelo ER - Insuclinicos" id="modelo-er-insuclinicos">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="GC-XPNB58CZdbD3tl6FF-1" parent="1" style="text;html=1;fontSize=20;fontStyle=1;fontColor=#1a3a6b;" value="Diagrama de Contexto de Negocio - Insuclinicos Ltda." vertex="1">
+          <mxGeometry height="30" width="700" x="299.99857142857155" y="259.99569684709826" as="geometry" />
+        </mxCell>
+        <mxCell id="GC-XPNB58CZdbD3tl6FF-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;strokeWidth=2;strokeColor=#666666;fillColor=none;verticalAlign=top;align=right;fontSize=16;fontColor=#666666;spacingTop=12;spacingRight=15;" value="&lt;b&gt;Insuclinicos Ltda.&lt;/b&gt;" vertex="1">
+          <mxGeometry height="830" width="910" x="520" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="GC-XPNB58CZdbD3tl6FF-3" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=14;" value="Cliente" vertex="1">
+          <mxGeometry height="80" width="180" x="210.42857142857156" y="429.2856968470983" as="geometry" />
+        </mxCell>
+        <mxCell id="GC-XPNB58CZdbD3tl6FF-4" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=14;" value="Proveedor" vertex="1">
+          <mxGeometry height="80" width="180" x="199.99857142857155" y="889.9956968470983" as="geometry" />
+        </mxCell>
+        <mxCell id="GC-XPNB58CZdbD3tl6FF-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontStyle=1;fontSize=14;" value="Excel Operativo&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;(pedidos, inventario, produccion)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="105" width="210" x="589.9985714285715" y="459.2856968470983" as="geometry" />
+        </mxCell>
+        <mxCell id="GC-XPNB58CZdbD3tl6FF-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontStyle=1;fontSize=14;" value="WhatsApp y Correo&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;(comunicacion y coordinacion)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="105" width="230" x="1189.9985714285715" y="459.2856968470983" as="geometry" />
+        </mxCell>
+        <mxCell id="GC-XPNB58CZdbD3tl6FF-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontStyle=1;fontSize=14;" value="Documentos Fisicos&lt;br&gt;y Remisiones Manuales" vertex="1">
+          <mxGeometry height="100" width="220" x="719.9985714285715" y="733.9956968470983" as="geometry" />
+        </mxCell>
+        <mxCell id="GC-XPNB58CZdbD3tl6FF-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=6 6;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;fontSize=14;" value="Plataforma de&lt;br&gt;Facturacion Electronica&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;(externa)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="110" width="210" x="1443.9985714285715" y="709.2856968470983" as="geometry" />
+        </mxCell>
+        <mxCell id="GC-XPNB58CZdbD3tl6FF-9" edge="1" parent="1" source="GC-XPNB58CZdbD3tl6FF-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;fontStyle=1;" target="GC-XPNB58CZdbD3tl6FF-6" value="Solicitud de cotizacion / pedido">
+          <mxGeometry relative="1" x="-0.7334" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="300.33" y="630" />
+              <mxPoint x="1260" y="630" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GC-XPNB58CZdbD3tl6FF-10" edge="1" parent="1" source="GC-XPNB58CZdbD3tl6FF-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;fontStyle=1;" target="GC-XPNB58CZdbD3tl6FF-3" value="Cotizacion, confirmacion y estado del pedido">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1270" y="370" />
+              <mxPoint x="300.47" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GC-XPNB58CZdbD3tl6FF-11" edge="1" parent="1" source="GC-XPNB58CZdbD3tl6FF-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;fontStyle=1;" target="GC-XPNB58CZdbD3tl6FF-5" value="Datos de cliente, pedido, inventario y orden de produccion">
+          <mxGeometry relative="1" x="0.0724" y="-2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GC-XPNB58CZdbD3tl6FF-12" edge="1" parent="1" source="GC-XPNB58CZdbD3tl6FF-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;fontStyle=1;" target="GC-XPNB58CZdbD3tl6FF-4" value="Solicitud de compra">
+          <mxGeometry relative="1" x="0.5826" as="geometry">
+            <mxPoint x="-1" as="offset" />
+            <Array as="points">
+              <mxPoint x="1210" y="860" />
+              <mxPoint x="290" y="860" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GC-XPNB58CZdbD3tl6FF-13" edge="1" parent="1" source="GC-XPNB58CZdbD3tl6FF-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;fontStyle=1;" target="GC-XPNB58CZdbD3tl6FF-6" value="Cotizacion, confirmacion y entrega de materia prima">
+          <mxGeometry relative="1" x="-0.7676" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GC-XPNB58CZdbD3tl6FF-14" edge="1" parent="1" source="GC-XPNB58CZdbD3tl6FF-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;fontStyle=1;" target="GC-XPNB58CZdbD3tl6FF-7" value="Registros de produccion, calidad y remision de despacho">
+          <mxGeometry relative="1" x="0.2368" y="30" as="geometry">
+            <mxPoint x="1" as="offset" />
+            <Array as="points">
+              <mxPoint x="760" y="700" />
+              <mxPoint x="760" y="700" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GC-XPNB58CZdbD3tl6FF-15" edge="1" parent="1" source="GC-XPNB58CZdbD3tl6FF-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;fontStyle=1;" target="GC-XPNB58CZdbD3tl6FF-8" value="Datos de venta y entrega">
+          <mxGeometry relative="1" x="0.8683" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="680" y="430" />
+              <mxPoint x="1515.5" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GC-XPNB58CZdbD3tl6FF-16" edge="1" parent="1" source="GC-XPNB58CZdbD3tl6FF-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;fontStyle=1;" target="GC-XPNB58CZdbD3tl6FF-5" value="Factura electronica emitida">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1515.33" y="1060" />
+              <mxPoint x="680" y="1060" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
