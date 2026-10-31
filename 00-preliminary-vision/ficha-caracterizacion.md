@@ -78,7 +78,7 @@ Flujo general: *Solicitud del cliente → cotización → confirmación del pedi
 ## VI. Persona de contacto
 
 - **Nombre del contacto:** Santiago Martínez
-- **Correo electrónico / teléfono:** [por confirmar] / 324 357 2958
+- **Correo electrónico / teléfono:** santiagomaro@unisabana.edu.co / 324 357 2958
 - **Rol o vínculo con la solución:** Representante legal de Insuclínicos Ltda., encargado de validar la información y los modelos junto con el equipo de producción cuando aplique.
 
 ---
