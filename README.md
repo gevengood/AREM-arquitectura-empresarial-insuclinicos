@@ -34,7 +34,7 @@ Ver el **[Resumen Ejecutivo (`resumen-ejecutivo.md`)](resumen-ejecutivo.md)** �
 
 ## 📂 Si quiere ver el detalle técnico completo
 
-Todo el análisis que sustenta esta propuesta está documentado carpeta por carpeta (Fases `00` a `07` consolidadas de los Cortes 1 y 2), siguiendo la metodología del curso:
+Todo el análisis que sustenta esta propuesta está documentado carpeta por carpeta (Fases `00` a `08` consolidadas), siguiendo la metodología del curso:
 
 | Carpeta | Qué contiene | Entregables principales |
 |---|---|---|
@@ -46,6 +46,7 @@ Todo el análisis que sustenta esta propuesta está documentado carpeta por carp
 | **[`05-seguridad-stride/`](05-seguridad-stride/)** | Evaluación de amenazas de seguridad de la información con metodología STRIDE (`T1`–`T6`) | [Tabla STRIDE (`tabla-stride-cliente.xlsx`)](05-seguridad-stride/tabla-stride-cliente.xlsx) · [Informe de Seguridad](05-seguridad-stride/informe.md) · [Referencias](05-seguridad-stride/referencias.md) |
 | **[`06-normatividad/`](06-normatividad/)** | Auditoría de cumplimiento legal y normativo (Ley 1581, INVIMA Dec. 4725, ISO 27001) | [Checklist Normativo (`checklist-cliente.xlsx`)](06-normatividad/checklist-cliente.xlsx) · [Informe de Normatividad](06-normatividad/informe.md) · [Referencias](06-normatividad/referencias.md) |
 | **[`07-opportunities-solutions/`](07-opportunities-solutions/)** | La arquitectura objetivo (TO-BE), matriz de brechas, matriz de decisión ponderada y paquetes de trabajo | [Documento Mejora TO-BE (`mejora-arquitectura.md`)](07-opportunities-solutions/mejora-arquitectura.md) · [Informe (`informe.md`)](07-opportunities-solutions/informe.md) · [TO-BE Aplicaciones (`to-be-aplicaciones-final.drawio`)](07-opportunities-solutions/to-be-aplicaciones-final.drawio) · [TO-BE Tecnología (`to-be-tecnologia-final.drawio`)](07-opportunities-solutions/to-be-tecnologia-final.drawio) · [Matriz de Brechas (`matriz-brechas.xlsx`)](07-opportunities-solutions/matriz-brechas.xlsx) · [Referencias](07-opportunities-solutions/referencias.md) |
+| **[`08-integracion-vistas/`](08-integracion-vistas/)** | Integración vertical en 5 capas (AS-IS + TO-BE) y verificación de consistencia entre vistas | [Tablero Integrado (`tablero-integrado-cliente.drawio`)](08-integracion-vistas/tablero-integrado-cliente.drawio) · [Informe Integración](08-integracion-vistas/informe.md) · [Referencias](08-integracion-vistas/referencias.md) · [Trabajo en Clase FarmApp](08-integracion-vistas/clase/notas.md) |
 
 ---
 
@@ -86,13 +87,20 @@ AREM-arquitectura-empresarial-insuclinicos/
 │   ├── checklist-cliente.xlsx
 │   ├── informe.md
 │   └── referencias.md
-└── 07-opportunities-solutions/
-    ├── to-be-aplicaciones-final.drawio
-    ├── to-be-tecnologia-final.drawio
-    ├── matriz-brechas.xlsx
-    ├── mejora-arquitectura.md
+├── 07-opportunities-solutions/
+│   ├── to-be-aplicaciones-final.drawio
+│   ├── to-be-tecnologia-final.drawio
+│   ├── matriz-brechas.xlsx
+│   ├── mejora-arquitectura.md
+│   ├── informe.md
+│   └── referencias.md
+└── 08-integracion-vistas/
+    ├── tablero-integrado-cliente.drawio
     ├── informe.md
-    └── referencias.md
+    ├── referencias.md
+    └── clase/
+        ├── tablero-farmapp.drawio
+        └── notas.md
 ```
 
 ---

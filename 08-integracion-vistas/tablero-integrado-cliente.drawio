@@ -1,0 +1,485 @@
+<mxfile host="app.diagrams.net" modified="2026-11-09T18:20:00.000Z" agent="Mozilla/5.0" version="24.0.0" type="device">
+  <diagram id="insuclinicos-p1" name="1. Inventario 5 Capas (AS-IS y TO-BE)">
+    <mxGraphModel dx="1422" dy="850" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1760" pageHeight="1060" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c1_t" value="Insuclínicos Ltda. — Tablero Integrado de 5 Capas (Paso 2: Inventario AS-IS y TO-BE)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=17;fontStyle=1;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="60" y="12" width="1640" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_leg" value="Convención:   [Verde] NUEVO (TO-BE Taller 7)   |   [Azul/Gris] Conservado / Evolucionado (AS-IS → TO-BE)   |   [Rojo punteado] Legado AS-IS Reemplazado / Retirado   |   [Azul oscuro/Rojo] Control STRIDE y Norma" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDF2F7;strokeColor=#CBD5E0;fontColor=#2D3748;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="44" width="1640" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_b_biz" value="1. NEGOCIO&#xa;(Talleres 0, 1, 7)" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#FFFBEB;strokeColor=#D69E2E;strokeWidth=2;fontStyle=1;fontSize=12;startSize=36;fontColor=#744210;" vertex="1" parent="1">
+          <mxGeometry x="20" y="85" width="1720" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_b_app" value="2. APLICACIONES&#xa;(Talleres 3, 7)" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#EBF8FF;strokeColor=#2B6CB0;strokeWidth=2;fontStyle=1;fontSize=12;startSize=36;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="20" y="248" width="1720" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_b_inf" value="3. INFORMACIÓN&#xa;(Talleres 2, 7)" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#F0FFF4;strokeColor=#2F855A;strokeWidth=2;fontStyle=1;fontSize=12;startSize=36;fontColor=#1C5C38;" vertex="1" parent="1">
+          <mxGeometry x="20" y="481" width="1720" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_b_tec" value="4. INFRAESTRUCTURA&#xa;(Talleres 4, 7)" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#F7FAFC;strokeColor=#4A5568;strokeWidth=2;fontStyle=1;fontSize=12;startSize=36;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="20" y="644" width="1720" height="205" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_b_sec" value="5. SEGURIDAD Y NORMA&#xa;(Talleres 5, 6, 7)" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#FFF5F5;strokeColor=#C53030;strokeWidth=2;fontStyle=1;fontSize=12;startSize=36;fontColor=#742A2A;" vertex="1" parent="1">
+          <mxGeometry x="20" y="862" width="1720" height="165" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_p1" value="Recepción y Cotización de Pedido&#xa;[Ventas / Admin]&#xa;(TO-BE: Aviso Ley 1581 + Reserva stock)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D69E2E;fontColor=#744210;fontStyle=1;fontSize=12;" vertex="1" parent="c1_b_biz">
+          <mxGeometry x="70" y="30" width="245" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_p2" value="Verificación Material SMS y Compras&#xa;[Almacén · Gateway 1 BPMN]&#xa;¿Hay material suficiente?" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D69E2E;fontColor=#744210;fontStyle=1;fontSize=12;" vertex="1" parent="c1_b_biz">
+          <mxGeometry x="340" y="30" width="245" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_p3" value="Producción: Tendido, Corte y Confección&#xa;[Planta · Subproceso BPMN]&#xa;(TO-BE: Orden digital en Tablet)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D69E2E;fontColor=#744210;fontStyle=1;fontSize=12;" vertex="1" parent="c1_b_biz">
+          <mxGeometry x="610" y="30" width="255" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_p4" value="Inspección de Calidad y Reproceso&#xa;[Calidad · Gateway 2 BPMN]&#xa;¿Cumple especificaciones? + Lote SMS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D69E2E;fontColor=#744210;fontStyle=1;fontSize=12;" vertex="1" parent="c1_b_biz">
+          <mxGeometry x="890" y="30" width="255" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_p5" value="Despacho y Remisión a Clínica&#xa;[Despacho / Almacén]&#xa;(TO-BE: Remisión PDF con Lote INVIMA)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D69E2E;fontColor=#744210;fontStyle=1;fontSize=12;" vertex="1" parent="c1_b_biz">
+          <mxGeometry x="1170" y="30" width="250" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_p6" value="Facturación Electrónica y Cobro&#xa;[Admin / Contabilidad]&#xa;(TO-BE: Exportación sin redigitar)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D69E2E;fontColor=#744210;fontStyle=1;fontSize=12;" vertex="1" parent="c1_b_biz">
+          <mxGeometry x="1445" y="30" width="245" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_a_wa" value="WhatsApp Business / Correo&#xa;[Externo AS-IS + NUEVO Aviso Ley 1581]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#718096;strokeColor=#4A5568;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_app">
+          <mxGeometry x="70" y="18" width="290" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_a_ex1" value="Libro de Pedidos y Cotizaciones&#xa;[MS Excel AS-IS — RETIRADO en TO-BE]" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=6 4;fillColor=#FED7D7;strokeColor=#C53030;strokeWidth=2;fontColor=#742A2A;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_app">
+          <mxGeometry x="390" y="18" width="290" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_a_ex2" value="Libro de Control de Inventario&#xa;[MS Excel AS-IS — RETIRADO en TO-BE]" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=6 4;fillColor=#FED7D7;strokeColor=#C53030;strokeWidth=2;fontColor=#742A2A;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_app">
+          <mxGeometry x="710" y="18" width="290" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_a_pap" value="Registros de Calidad y Despacho&#xa;[Papel Físico AS-IS — RETIRADO en TO-BE]" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=6 4;fillColor=#FED7D7;strokeColor=#C53030;strokeWidth=2;fontColor=#742A2A;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_app">
+          <mxGeometry x="1030" y="18" width="295" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_a_dian" value="Plataforma Facturación Electrónica&#xa;[SaaS Externo DIAN]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#718096;strokeColor=#4A5568;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_app">
+          <mxGeometry x="1355" y="18" width="335" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_a_m1" value="NUEVO: Módulo Comercial y Pedidos&#xa;(CRM/ERP Cloud · Check Ley 1581 + Reserva)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E8B57;strokeColor=#1C5C38;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_app">
+          <mxGeometry x="70" y="115" width="300" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_a_m2" value="NUEVO: Módulo Inventario y Lotes INVIMA&#xa;(CRM/ERP Cloud · Kardex + Lote Rollo SMS)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E8B57;strokeColor=#1C5C38;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_app">
+          <mxGeometry x="395" y="115" width="305" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_a_m3" value="NUEVO: Módulo Producción, Calidad y Remisiones&#xa;(CRM/ERP Cloud · Tablet + Remisión PDF Lote)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E8B57;strokeColor=#1C5C38;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_app">
+          <mxGeometry x="725" y="115" width="320" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_a_m4" value="NUEVO: Módulo Seguridad RBAC y Auditoría&#xa;(CRM/ERP Cloud · Controles T1, T2, T3, T6)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2B6CB0;strokeColor=#1A365D;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_app">
+          <mxGeometry x="1070" y="115" width="295" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_a_con" value="NUEVO: Exportador / Conector DIAN&#xa;(Integración CSV / API · Cierra GAP-02)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E8B57;strokeColor=#1C5C38;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_app">
+          <mxGeometry x="1390" y="115" width="300" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_e1" value="CLIENTE&#xa;(+ NUEVO:&#xa;consentimiento_ley1581)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=9;fillColor=#2F855A;strokeColor=#1C5C38;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_inf">
+          <mxGeometry x="60" y="24" width="170" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_e2" value="PEDIDO&#xa;(id, estado,&#xa;fecha_requerida)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=9;fillColor=#2F855A;strokeColor=#1C5C38;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_inf">
+          <mxGeometry x="245" y="24" width="155" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_e3" value="DETALLE_PEDIDO&#xa;(cantidad,&#xa;precio_unitario)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=9;fillColor=#2F855A;strokeColor=#1C5C38;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_inf">
+          <mxGeometry x="415" y="24" width="165" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_e4" value="PRODUCTO&#xa;(referencia,&#xa;costo_estimado)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=9;fillColor=#2F855A;strokeColor=#1C5C38;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_inf">
+          <mxGeometry x="595" y="24" width="160" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_e5" value="MATERIA_PRIMA&#xa;(Rollos SMS,&#xa;stock_minimo)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=9;fillColor=#2F855A;strokeColor=#1C5C38;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_inf">
+          <mxGeometry x="770" y="24" width="165" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_e6" value="CONSUMO_MP&#xa;(+ NUEVO:&#xa;lote_sms_invima)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=9;fillColor=#2F855A;strokeColor=#1C5C38;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_inf">
+          <mxGeometry x="950" y="24" width="165" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_e7" value="ORDEN_PRODUCCION&#xa;(estado,&#xa;cantidad_planeada)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=9;fillColor=#2F855A;strokeColor=#1C5C38;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_inf">
+          <mxGeometry x="1130" y="24" width="175" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_e8" value="DESPACHO&#xa;(numero_remision&#xa;+ Lote INVIMA)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=9;fillColor=#2F855A;strokeColor=#1C5C38;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_inf">
+          <mxGeometry x="1320" y="24" width="175" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_e9" value="NUEVO: BITACORA_&#xa;AUDITORIA&#xa;(audit_log T3)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=9;fillColor=#1C5C38;strokeColor=#0F3D24;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_inf">
+          <mxGeometry x="1510" y="24" width="180" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_t_spof" value="Disco Duro Local (Excel)&#xa;[SPOF AS-IS — RETIRADO en TO-BE]" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=6 4;fillColor=#FED7D7;strokeColor=#C53030;strokeWidth=2;fontColor=#742A2A;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_tec">
+          <mxGeometry x="70" y="18" width="330" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_t_pc1" value="PC Ventas / Administración (LAN)&#xa;[Cliente HTTPS + Sesión Nominal + Sin USB]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#2B6CB0;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_tec">
+          <mxGeometry x="430" y="18" width="380" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_t_pc2" value="PC Almacén / Inventario (LAN)&#xa;[Cliente HTTPS + Sin Carpetas SMB Abiertas]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#2B6CB0;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_tec">
+          <mxGeometry x="840" y="18" width="380" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_t_rtr" value="Router / Firewall ISP + Wi-Fi WPA3&#xa;[Gateway LAN + Contingencia 4G/5G]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4A5568;strokeColor=#2D3748;fontColor=#FFFFFF;fontStyle=1;fontSize=12;" vertex="1" parent="c1_b_tec">
+          <mxGeometry x="1250" y="18" width="440" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_t_tab" value="NUEVO: Tablet / Terminal Web en Planta&#xa;[Wi-Fi WPA3 · Cero Papel en Corte/Confección]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E8B57;strokeColor=#1C5C38;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_tec">
+          <mxGeometry x="70" y="108" width="360" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_t_app" value="NUEVO: Nodo Aplicación CRM/ERP Cloud&#xa;[PaaS Linux · HTTPS TLS 1.3 + WAF]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E8B57;strokeColor=#1C5C38;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_tec">
+          <mxGeometry x="460" y="108" width="380" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_t_db" value="NUEVO: BD PostgreSQL Gestionada&#xa;[Cloud Multi-AZ · Cifrado AES-256 · Elimina SPOF]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E8B57;strokeColor=#1C5C38;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_tec">
+          <mxGeometry x="870" y="108" width="390" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_t_bak" value="NUEVO: Bóveda Backup 3-2-1 Inmutable&#xa;[Cloud Object Storage · Snapshot 11 PM / 30 días]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2B6CB0;strokeColor=#1A365D;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_tec">
+          <mxGeometry x="1290" y="108" width="400" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_s1" value="T1 &amp; T6 · RBAC Nominal&#xa;6 cuentas individuales, bloqueo 5m,&#xa;cierre carpetas SMB (ISO A.5.15/A.8.2)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2B6CB0;strokeColor=#1A365D;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_sec">
+          <mxGeometry x="60" y="28" width="220" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_s2" value="T2 &amp; T3 · Integridad y Logs&#xa;Validación precios servidor +&#xa;Bitácora inmutable (ISO A.8.15)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2B6CB0;strokeColor=#1A365D;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_sec">
+          <mxGeometry x="295" y="28" width="220" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_s3" value="T4 · Cifrado y Control DLP&#xa;TLS 1.3 + AES-256 + Bloqueo USB&#xa;y cero Excel en C:\ (ISO A.8.24)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2B6CB0;strokeColor=#1A365D;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_sec">
+          <mxGeometry x="530" y="28" width="220" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_s4" value="T5 · Continuidad y Backup 3-2-1&#xa;Recuperación ante ransomware/fallo&#xa;RPO ≤ 24h (ISO 27001 A.8.13)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2B6CB0;strokeColor=#1A365D;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_sec">
+          <mxGeometry x="765" y="28" width="220" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_s5" value="Ley 1581 / Dec. 1377 (Habeas Data)&#xa;Aviso WhatsApp + Autorización CRM&#xa;+ DPO + Canal ARCO (15 días)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9B2C2C;strokeColor=#742A2A;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_sec">
+          <mxGeometry x="1000" y="28" width="225" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_s6" value="INVIMA Dec. 4725 / Res. 4816&#xa;Trazabilidad bidireccional obligatoria&#xa;Lote SMS → Orden → Remisión PDF" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9B2C2C;strokeColor=#742A2A;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_sec">
+          <mxGeometry x="1240" y="28" width="225" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_s7" value="DIAN Res. 000165 / Cód. Comercio&#xa;Facturación electrónica validada +&#xa;Conservación documental 5+ años" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9B2C2C;strokeColor=#742A2A;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="c1_b_sec">
+          <mxGeometry x="1480" y="28" width="215" height="105" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="insuclinicos-p2" name="2. Hilos Conectados End-to-End">
+    <mxGraphModel dx="1422" dy="850" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1820" pageHeight="1010" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c2_t" value="Insuclínicos Ltda. — Tablero Integrado de 5 Capas (Paso 3: Hilos de Negocio Conectados AS-IS → TO-BE)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=17;fontStyle=1;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="60" y="12" width="1700" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="c2_leg" value="Hilos:   ━━ Azul = Hilo 1: Comercial y Facturación   |   ━━ Verde = Hilo 2: Producción y Lote INVIMA (NUEVO)   |   ━━ Morado = Hilo 3: Despacho y Continuidad   |   ┈┈ Rojo = Legado AS-IS Reemplazado / Seguridad" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDF2F7;strokeColor=#CBD5E0;fontColor=#2D3748;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="44" width="1720" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="c2_b_biz" value="1. NEGOCIO" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#FFFBEB;strokeColor=#D69E2E;strokeWidth=2;fontStyle=1;fontSize=12;startSize=36;fontColor=#744210;" vertex="1" parent="1">
+          <mxGeometry x="20" y="84" width="1780" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="c2_b_app" value="2. APLICACIONES" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#EBF8FF;strokeColor=#2B6CB0;strokeWidth=2;fontStyle=1;fontSize=12;startSize=36;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="20" y="250" width="1780" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c2_b_inf" value="3. INFORMACIÓN" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#F0FFF4;strokeColor=#2F855A;strokeWidth=2;fontStyle=1;fontSize=12;startSize=36;fontColor=#1C5C38;" vertex="1" parent="1">
+          <mxGeometry x="20" y="436" width="1780" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c2_b_tec" value="4. INFRAESTRUCTURA" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#F7FAFC;strokeColor=#4A5568;strokeWidth=2;fontStyle=1;fontSize=12;startSize=36;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="20" y="622" width="1780" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="c2_b_sec" value="5. SEGURIDAD / NORMA" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#FFF5F5;strokeColor=#C53030;strokeWidth=2;fontStyle=1;fontSize=12;startSize=36;fontColor=#742A2A;" vertex="1" parent="1">
+          <mxGeometry x="20" y="833" width="1780" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="cn_cot" value="Recepción y Cotización&#xa;[Hilo 1 Comercial]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D69E2E;fontColor=#744210;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="90" y="108" width="220" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="cn_fac" value="Facturación Electrónica&#xa;[Hilo 1 Comercial]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D69E2E;fontColor=#744210;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="350" y="108" width="210" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="cn_ver" value="Verificación SMS / Compras&#xa;[Hilo 2 Producción]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D69E2E;fontColor=#744210;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="610" y="108" width="225" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="cn_prd" value="Tendido, Corte y Confección&#xa;[Hilo 2 Producción]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D69E2E;fontColor=#744210;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="865" y="108" width="225" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="cn_cal" value="Calidad y Reproceso&#xa;[Hilo 2 Producción]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D69E2E;fontColor=#744210;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="108" width="210" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="cn_des" value="Despacho y Remisión&#xa;[Hilo 3 Logística]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D69E2E;fontColor=#744210;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1370" y="108" width="220" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="ca_wa" value="WhatsApp Business&#xa;(+ NUEVO Aviso 1581)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#718096;strokeColor=#4A5568;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="70" y="275" width="165" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="ca_com" value="NUEVO: Módulo&#xa;Comercial y Pedidos&#xa;(CRM/ERP Cloud)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E8B57;strokeColor=#1C5C38;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="250" y="275" width="175" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="ca_con" value="NUEVO: Exportador&#xa;Facturación (CSV/API)&#xa;+ Plataforma DIAN" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E8B57;strokeColor=#1C5C38;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="440" y="275" width="180" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="ca_inv" value="NUEVO: Módulo&#xa;Inventario y Lotes&#xa;INVIMA (CRM/ERP)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E8B57;strokeColor=#1C5C38;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="645" y="275" width="190" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="ca_prd" value="NUEVO: Módulo&#xa;Producción, Calidad&#xa;y Remisiones PDF" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E8B57;strokeColor=#1C5C38;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="865" y="275" width="210" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="ca_sec" value="NUEVO: Módulo&#xa;Seguridad RBAC y&#xa;Logs Auditoría" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2B6CB0;strokeColor=#1A365D;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1105" y="275" width="190" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="ca_leg" value="AS-IS RETIRADOS:&#xa;• Excel Pedidos&#xa;• Excel Inventario&#xa;• Planillas Papel" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=6 4;fillColor=#FED7D7;strokeColor=#C53030;strokeWidth=2;fontColor=#742A2A;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1495" y="275" width="255" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="ci_cli" value="CLIENTE&#xa;(+ Ley 1581)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=9;fillColor=#2F855A;strokeColor=#1C5C38;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="70" y="456" width="140" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="ci_ped" value="PEDIDO &amp;&#xa;DETALLE" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=9;fillColor=#2F855A;strokeColor=#1C5C38;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="230" y="456" width="140" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="ci_pro" value="PRODUCTO" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=9;fillColor=#2F855A;strokeColor=#1C5C38;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="390" y="456" width="135" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="ci_mp" value="MATERIA_PRIMA&#xa;(Rollos SMS)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=9;fillColor=#2F855A;strokeColor=#1C5C38;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="555" y="456" width="155" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="ci_con" value="CONSUMO_MP&#xa;(+ NUEVO&#xa;lote_sms)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=9;fillColor=#2F855A;strokeColor=#1C5C38;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="735" y="456" width="155" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="ci_op" value="ORDEN_&#xa;PRODUCCION" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=9;fillColor=#2F855A;strokeColor=#1C5C38;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="915" y="456" width="155" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="ci_aud" value="NUEVO:&#xa;BITACORA_&#xa;AUDITORIA" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=9;fillColor=#1C5C38;strokeColor=#0F3D24;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1095" y="456" width="155" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="ci_des" value="DESPACHO&#xa;(Remisión +&#xa;Lote INVIMA)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=9;fillColor=#2F855A;strokeColor=#1C5C38;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="456" width="165" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="ct_pcv" value="PC Ventas / Admin&#xa;(Sesión nominal, Sin USB)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#2B6CB0;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="75" y="638" width="240" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="ct_rtr" value="Router / Firewall ISP&#xa;+ Wi-Fi WPA3 (+ 4G/5G)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4A5568;strokeColor=#2D3748;fontColor=#FFFFFF;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="345" y="638" width="240" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="ct_pca" value="PC Almacén&#xa;(Sin carpetas SMB)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#2B6CB0;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="615" y="638" width="220" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="ct_tab" value="NUEVO: Tablet Planta&#xa;(Wi-Fi WPA3 · Cero papel)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E8B57;strokeColor=#1C5C38;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="865" y="638" width="245" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="ct_crm" value="NUEVO: Nodo CRM/ERP&#xa;(Cloud PaaS TLS 1.3+WAF)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E8B57;strokeColor=#1C5C38;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="210" y="718" width="300" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="ct_db" value="NUEVO: BD PostgreSQL&#xa;(Multi-AZ + AES-256)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E8B57;strokeColor=#1C5C38;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="615" y="718" width="300" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="ct_bak" value="NUEVO: Bóveda Backup 3-2-1&#xa;(Object Storage Inmutable)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2B6CB0;strokeColor=#1A365D;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="718" width="310" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="ct_spof" value="AS-IS RETIRADO:&#xa;Disco Duro Local&#xa;(SPOF Excel)" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=6 4;fillColor=#FED7D7;strokeColor=#C53030;strokeWidth=2;fontColor=#742A2A;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1495" y="660" width="255" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="cs_1581" value="Ley 1581 / ARCO&#xa;Aviso WhatsApp +&#xa;Consentimiento CRM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9B2C2C;strokeColor=#742A2A;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="75" y="858" width="205" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="cs_dian" value="DIAN Res. 000165&#xa;Factura validada +&#xa;Retención 5+ años" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9B2C2C;strokeColor=#742A2A;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="300" y="858" width="205" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="cs_rbac" value="T1, T4 &amp; T6&#xa;RBAC, TLS/AES-256,&#xa;Bloqueo 5m y USB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2B6CB0;strokeColor=#1A365D;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="530" y="858" width="220" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="cs_inv" value="INVIMA Dec. 4725&#xa;&amp; Res. 4816: Lote&#xa;SMS en Orden/PDF" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9B2C2C;strokeColor=#742A2A;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="780" y="858" width="220" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="cs_logs" value="T2 &amp; T3 · Reglas&#xa;Precios bloqueados +&#xa;Logs inmutables" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2B6CB0;strokeColor=#1A365D;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="858" width="215" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="cs_bak" value="T5 &amp; ISO A.8.13&#xa;Backup 3-2-1 diario&#xa;anti-ransomware" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2B6CB0;strokeColor=#1A365D;strokeWidth=2;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1275" y="858" width="220" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="ce1" value="canal" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#2B6CB0;fontColor=#1A365D;fontSize=9;" edge="1" parent="1" source="cn_cot" target="ca_wa">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce2" value="NUEVO" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#2B6CB0;fontColor=#1A365D;fontSize=9;" edge="1" parent="1" source="cn_cot" target="ca_com">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce3" value="NUEVO" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#2B6CB0;fontColor=#1A365D;fontSize=9;" edge="1" parent="1" source="cn_fac" target="ca_con">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce3b" value="extrae" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#2B6CB0;fontColor=#1A365D;fontSize=9;" edge="1" parent="1" source="ca_con" target="ci_ped">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="490" y="415" />
+              <mxPoint x="300" y="415" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce4" value="crea" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#2B6CB0;fontColor=#1A365D;fontSize=9;" edge="1" parent="1" source="ca_com" target="ci_cli">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce5" value="registra" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#2B6CB0;fontColor=#1A365D;fontSize=9;" edge="1" parent="1" source="ca_com" target="ci_ped">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce6" value="consulta" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#2B6CB0;fontColor=#1A365D;fontSize=9;" edge="1" parent="1" source="ca_com" target="ci_pro">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce7" value="opera en" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#2B6CB0;fontColor=#1A365D;fontSize=9;" edge="1" parent="1" source="ca_com" target="ct_pcv">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="200" y="415" />
+              <mxPoint x="195" y="415" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce8" value="HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#2B6CB0;fontColor=#1A365D;fontSize=9;" edge="1" parent="1" source="ct_pcv" target="ct_rtr">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce9" value="TLS 1.3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#2B6CB0;fontColor=#1A365D;fontSize=9;" edge="1" parent="1" source="ct_rtr" target="ct_crm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce10" value="SQL ACID" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#2B6CB0;fontColor=#1A365D;fontSize=9;" edge="1" parent="1" source="ct_crm" target="ct_db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce11" value="aviso" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=1.8;strokeColor=#9B2C2C;fontColor=#742A2A;fontSize=9;" edge="1" parent="1" source="ca_wa" target="cs_1581">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="50" y="323" />
+              <mxPoint x="50" y="906" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce12" value="consent." style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=1.8;strokeColor=#9B2C2C;fontColor=#742A2A;fontSize=9;" edge="1" parent="1" source="ca_com" target="cs_1581">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="605" />
+              <mxPoint x="220" y="605" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce13" value="cumple" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=1.8;strokeColor=#9B2C2C;fontColor=#742A2A;fontSize=9;" edge="1" parent="1" source="ca_con" target="cs_dian">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="535" y="605" />
+              <mxPoint x="402" y="605" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce14" value="verifica" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#2E8B57;fontColor=#1C5C38;fontSize=9;" edge="1" parent="1" source="cn_ver" target="ca_inv">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce15" value="NUEVO" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#2E8B57;fontColor=#1C5C38;fontSize=9;" edge="1" parent="1" source="cn_prd" target="ca_prd">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce16" value="inspección" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#2E8B57;fontColor=#1C5C38;fontSize=9;" edge="1" parent="1" source="cn_cal" target="ca_prd">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce16b" value="audita" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#2E8B57;fontColor=#1C5C38;fontSize=9;" edge="1" parent="1" source="cn_cal" target="ca_sec">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce17" value="kardex" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#2E8B57;fontColor=#1C5C38;fontSize=9;" edge="1" parent="1" source="ca_inv" target="ci_mp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce18" value="asocia lote" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#2E8B57;fontColor=#1C5C38;fontSize=9;" edge="1" parent="1" source="ca_inv" target="ci_con">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce19" value="ejecuta" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#2E8B57;fontColor=#1C5C38;fontSize=9;" edge="1" parent="1" source="ca_prd" target="ci_op">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce20" value="registra" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#2E8B57;fontColor=#1C5C38;fontSize=9;" edge="1" parent="1" source="ca_sec" target="ci_aud">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce21" value="opera" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#2E8B57;fontColor=#1C5C38;fontSize=9;" edge="1" parent="1" source="ca_inv" target="ct_pca">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="715" y="605" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce22" value="NUEVO" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#2E8B57;fontColor=#1C5C38;fontSize=9;" edge="1" parent="1" source="ca_prd" target="ct_tab">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce23" value="LAN" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#2E8B57;fontColor=#1C5C38;fontSize=9;" edge="1" parent="1" source="ct_pca" target="ct_rtr">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="725" y="610" />
+              <mxPoint x="465" y="610" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce24" value="WPA3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#2E8B57;fontColor=#1C5C38;fontSize=9;" edge="1" parent="1" source="ct_tab" target="ct_rtr">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="987" y="600" />
+              <mxPoint x="465" y="600" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce25" value="aplica" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=1.8;strokeColor=#9B2C2C;fontColor=#742A2A;fontSize=9;" edge="1" parent="1" source="ca_sec" target="cs_rbac">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1150" y="410" />
+              <mxPoint x="640" y="410" />
+              <mxPoint x="640" y="835" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce25b" value="controla T2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=1.8;strokeColor=#9B2C2C;fontColor=#742A2A;fontSize=9;" edge="1" parent="1" source="ca_sec" target="cs_logs">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1255" y="605" />
+              <mxPoint x="1165" y="605" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce26" value="cumple" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=1.8;strokeColor=#9B2C2C;fontColor=#742A2A;fontSize=9;" edge="1" parent="1" source="ci_con" target="cs_inv">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="812" y="605" />
+              <mxPoint x="890" y="605" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce27" value="mitiga T3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=1.8;strokeColor=#9B2C2C;fontColor=#742A2A;fontSize=9;" edge="1" parent="1" source="ci_aud" target="cs_logs">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1172" y="605" />
+              <mxPoint x="1137" y="605" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce28" value="remisión PDF" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#6B46C1;fontColor=#44337A;fontSize=9;" edge="1" parent="1" source="cn_des" target="ca_prd">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1480" y="225" />
+              <mxPoint x="1000" y="225" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce29" value="emite" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#6B46C1;fontColor=#44337A;fontSize=9;" edge="1" parent="1" source="ca_prd" target="ci_des">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1030" y="405" />
+              <mxPoint x="1362" y="405" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce30" value="lote impreso" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=1.8;strokeColor=#9B2C2C;fontColor=#742A2A;fontSize=9;" edge="1" parent="1" source="ci_des" target="cs_inv">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1362" y="605" />
+              <mxPoint x="930" y="605" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce31" value="snapshot 11 PM" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.2;strokeColor=#6B46C1;fontColor=#44337A;fontSize=9;" edge="1" parent="1" source="ct_db" target="ct_bak">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce32" value="mitiga T5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=1.8;strokeColor=#9B2C2C;fontColor=#742A2A;fontSize=9;" edge="1" parent="1" source="ct_bak" target="cs_bak">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1385" y="751" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce33" value="reemplazado por TO-BE" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=4 4;strokeWidth=2;strokeColor=#C53030;fontColor=#742A2A;fontSize=9;fontStyle=1;" edge="1" parent="1" source="ca_leg" target="ca_prd">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1495" y="258" />
+              <mxPoint x="970" y="258" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ce34" value="migrado a Cloud" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=4 4;strokeWidth=2;strokeColor=#C53030;fontColor=#742A2A;fontSize=9;fontStyle=1;" edge="1" parent="1" source="ct_spof" target="ct_db">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1495" y="805" />
+              <mxPoint x="765" y="805" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
