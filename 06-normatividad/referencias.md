@@ -17,25 +17,26 @@ Taller 6 - Checklist de Cumplimiento Normativo y Seguridad de la Información
 4. **Superintendencia de Industria y Comercio - SIC.** (2015). *Guía para la implementación del Principio de Responsabilidad Demostrada (Accountability)*. Delegatura para la Protección de Datos Personales. Bogotá D.C., Colombia. [https://www.sic.gov.co/sites/default/files/documentos/0316/Guia_Accountability.pdf](https://www.sic.gov.co/sites/default/files/documentos/0316/Guia_Accountability.pdf)
 5. **Ministerio de la Protección Social & Instituto Nacional de Vigilancia de Medicamentos y Alimentos - INVIMA.** (2005, 26 de diciembre). *Decreto 4725 de 2005: Por el cual se reglamenta el régimen de registros sanitarios, permiso de comercialización y vigilancia sanitaria de los dispositivos médicos para uso humano*. Diario Oficial No. 46.134. [https://www.invima.gov.co/documents/20143/443422/DECRETO_4725_DE_2005.pdf](https://www.invima.gov.co/documents/20143/443422/DECRETO_4725_DE_2005.pdf)
 6. **Ministerio de la Protección Social & INVIMA.** (2008, 18 de noviembre). *Resolución 4816 de 2008: Por la cual se reglamenta el Programa Nacional de Tecnovigilancia*. Diario Oficial No. 47.185. [https://www.invima.gov.co/documents/20143/443422/RESOLUCION_4816_DE_2008.pdf](https://www.invima.gov.co/documents/20143/443422/RESOLUCION_4816_DE_2008.pdf)
-7. **Dirección de Impuestos y Aduanas Nacionales - DIAN.** (2023, 1 de noviembre). *Resolución 000165 de 2023: Por la cual se desarrolla el sistema de facturación electrónica, la adopción del anexo técnico de factura electrónica y se dictan otras disposiciones*. DIAN. [https://www.dian.gov.co/normatividad/Normatividad/Resolución%20000165%20de%2001-11-2023.pdf](https://www.dian.gov.co/normatividad/Normatividad/Resolución%20000165%20de%2001-11-2023.pdf)
-8. **Congreso de la República de Colombia.** (1971, 27 de marzo). *Decreto 410 de 1971: Código de Comercio (Artículos sobre conservación de libros y correspondencia comercial)*. Diario Oficial No. 33.339.
+7. **Dirección de Impuestos y Aduanas Nacionales - DIAN.** (2023, 1 de noviembre). *Resolución 000165 de 2023: Por la cual se desarrolla el sistema de facturación electrónica, la adopción del anexo técnico de factura electrónica y se dictan otras disposiciones*. DIAN. Incluye habilitación técnica de proveedores autorizados como **Siigo S.A.S.** con validación previa de CUFE y formato XML UBL 2.1. [https://www.dian.gov.co/normatividad/Normatividad/Resolución%20000165%20de%2001-11-2023.pdf](https://www.dian.gov.co/normatividad/Normatividad/Resolución%20000165%20de%2001-11-2023.pdf)
+8. **Congreso de la República de Colombia.** (1971, 27 de marzo). *Decreto 410 de 1971: Código de Comercio*. **Artículo 60:** *Conservación de los libros y papeles de comercio por el término de diez (10) años contados a partir de la fecha del último asiento, documento o comprobante*. [http://www.secretariasenado.gov.co/senado/basedoc/codigo_comercio.html](http://www.secretariasenado.gov.co/senado/basedoc/codigo_comercio.html)
+9. **Congreso de la República de Colombia.** (1989, 30 de marzo). *Decreto 624 de 1989: Estatuto Tributario Nacional*. **Artículo 632:** *Obligación de conservar informaciones y pruebas por el término de firmeza de la declaración tributaria*, en concordancia con el **Artículo 714** (término general de firmeza de cinco (5) años). [http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario.html](http://www.secretariasenado.gov.co/senado/basedoc/estatuto_tributario.html)
 
 ---
 
 ### Estándares Internacionales y Buenas Prácticas
 
-9. **International Organization for Standardization - ISO.** (2022). *ISO/IEC 27001:2022: Information security, cybersecurity and privacy protection — Information security management systems — Requirements*. Ginebra, Suiza: ISO. [https://www.iso.org/standard/27001](https://www.iso.org/standard/27001)
-10. **International Organization for Standardization - ISO.** (2016). *ISO 13485:2016: Medical devices — Quality management systems — Requirements for regulatory purposes*. Ginebra, Suiza: ISO. [https://www.iso.org/standard/59752.html](https://www.iso.org/standard/59752.html)
-11. **Center for Internet Security - CIS.** (2021). *CIS Critical Security Controls Version 8 — Implementation Group 1 (IG1) for Small and Medium Enterprises*. East Greenbush, NY: CIS Security. [https://www.cisecurity.org/controls/cis-controls-list/](https://www.cisecurity.org/controls/cis-controls-list/)
-12. **The Open Group.** (2022). *The TOGAF® Standard, 10th Edition: Business Architecture and Enterprise Security*. The Open Group. [https://www.opengroup.org/togaf](https://www.opengroup.org/togaf)
+10. **International Organization for Standardization - ISO.** (2022). *ISO/IEC 27001:2022: Information security, cybersecurity and privacy protection — Information security management systems — Requirements*. Ginebra, Suiza: ISO. [https://www.iso.org/standard/27001](https://www.iso.org/standard/27001)
+11. **International Organization for Standardization - ISO.** (2016). *ISO 13485:2016: Medical devices — Quality management systems — Requirements for regulatory purposes*. Ginebra, Suiza: ISO. [https://www.iso.org/standard/59752.html](https://www.iso.org/standard/59752.html)
+12. **Center for Internet Security - CIS.** (2021). *CIS Critical Security Controls Version 8 — Implementation Group 1 (IG1) for Small and Medium Enterprises*. East Greenbush, NY: CIS Security. [https://www.cisecurity.org/controls/cis-controls-list/](https://www.cisecurity.org/controls/cis-controls-list/)
+13. **The Open Group.** (2022). *The TOGAF® Standard, 10th Edition: Business Architecture and Enterprise Security*. The Open Group. [https://www.opengroup.org/togaf](https://www.opengroup.org/togaf)
 
 ---
 
 ### Fuentes Institucionales y Académicas
 
-13. **Universidad de La Sabana.** (2026). *Guía Paso a Paso: Checklist de Cumplimiento Normativo*. Material didáctico del curso Arquitectura Empresarial (AREM), Facultad de Ingeniería. Chía, Cundinamarca.
-14. **Universidad de La Sabana.** (2026). *Checklist de Caso Base GobData y Aplicación Web Interactiva de Visualización de Normatividad*. Material de cátedra AREM.
-15. **Insuclínicos Ltda.** (2026). *Ficha de Caracterización del Cliente, Documento de Visión de Arquitectura y Entrevista Primaria con Santiago Martínez (Representante Legal)*. Archivos del repositorio general de arquitectura empresarial del equipo de trabajo.
+14. **Universidad de La Sabana.** (2026). *Guía Paso a Paso: Checklist de Cumplimiento Normativo*. Material didáctico del curso Arquitectura Empresarial (AREM), Facultad de Ingeniería. Chía, Cundinamarca.
+15. **Universidad de La Sabana.** (2026). *Checklist de Caso Base GobData y Aplicación Web Interactiva de Visualización de Normatividad*. Material de cátedra AREM.
+16. **Insuclínicos Ltda.** (2026). *Ficha de Caracterización del Cliente, Documento de Visión de Arquitectura y Entrevista Primaria con Santiago Martínez (Representante Legal)*. Archivos del repositorio general de arquitectura empresarial del equipo de trabajo.
 
 ---
 

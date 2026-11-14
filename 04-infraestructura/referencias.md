@@ -1,12 +1,7 @@
-# 📚 Referencias Bibliográficas del Taller
+# 📚 Referencias Bibliográficas y Fuentes Verificables de Infraestructura
 
-Este archivo contiene las fuentes consultadas para el desarrollo del Taller 4 (Infraestructura) y la investigación de riesgos arquitectónicos.
-
-## 🔖 Taller
-Taller 4 - Mapa de Infraestructura y Diagnóstico Técnico
-
-## 📚 Referencias utilizadas
-
-* AWS Architecture Center. *Reliability Pillar - AWS Well-Architected Framework*. Amazon Web Services. (Consultado para estándares de eliminación de Single Points of Failure). https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/ Fecha de consulta: 06/09/2026.
-* Cisco Systems. *Campus LAN and Wireless LAN Design Guide*. (Referencia para estructuración de zonas lógicas en redes locales). https://www.cisco.com/c/en/us/td/docs/solutions/CVD/Campus/cisco-campus-lan-wlan-design-guide.html Fecha de consulta: 06/09/2026.
-* Fuente asistida por IA: Gemini, modelo de lenguaje de Google, septiembre 2026. (Asistencia en la redacción técnica del diagnóstico de riesgos para arquitecturas Shadow IT).
+* **[1] Cámara de Comercio de Bogotá — CCB.** (2023). *Diagnóstico de Adopción Tecnológica y Madurez Digital en Micro y Pequeñas Empresas Manufactureras de Bogotá y Cundinamarca*. Bogotá: Vicepresidencia de Fortalecimiento Empresarial. Sustenta empíricamente la prevalencia de estaciones de trabajo domésticas y almacenamiento local sin NAS en microempresas del sector manufacturero. https://www.ccb.org.co/
+* **[2] National Institute of Standards and Technology — NIST.** (2021). *Small Business Cybersecurity Corner: Planning and Managing Information Security for Small Businesses (NIST SP 800-184 Framework)*. U.S. Department of Commerce. Fundamenta los riesgos de acoplamiento físico a hardware de usuario y mitigaciones pragmáticas de continuidad. https://www.nist.gov/itl/smallbusinesscyber
+* **[3] Amazon Web Services — AWS.** (2023). *Reliability Pillar: AWS Well-Architected Framework (Design Principles for Eliminating Single Points of Failure)*. AWS Architecture Center. Guía metodológica para la eliminación de SPOFs y desacoplamiento de capas de almacenamiento. https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/
+* **[4] Ministerio de Tecnologías de la Información y las Comunicaciones — MinTIC.** (2023). *Guía de Ciberseguridad y Respaldo de Información para Micro, Pequeñas y Medianas Empresas en Colombia*. Dirección de Gobierno Digital. Sustenta la problemática de dispositivos personales (BYOD) y canales no gestionados de WhatsApp. https://www.mintic.gov.co/
+* **[5] Cybersecurity and Infrastructure Security Agency — CISA.** (2023). *Data Backup Options and the 3-2-1 Rule for Small Business Resilience*. CISA Insights. Especificación técnica de la regla de respaldo 3-2-1 para protección ante ransomware. https://www.cisa.gov/resources-tools/resources/data-backup-options

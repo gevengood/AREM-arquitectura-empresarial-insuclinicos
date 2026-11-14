@@ -8,78 +8,119 @@ Taller 5 - Evaluación de Seguridad con STRIDE aplicado a Insuclínicos Ltda.
 * David Santiago Buendia Londoño (Santiagoob7)
 
 ## 🧠 Descripción general del trabajo
-El objetivo de este taller fue aplicar el marco de modelado de amenazas STRIDE para evaluar la seguridad de la arquitectura actual (AS-IS) de Insuclínicos Ltda. El análisis se centró en el macro-proceso crítico de **Gestión y Cumplimiento de Pedido**, específicamente en el ecosistema de control operativo basado en archivos locales de Microsoft Excel y la comunicación mediante WhatsApp. A través de este ejercicio, se identificaron vulnerabilidades estructurales en el manejo de la información y se propusieron mitigaciones técnicas viables acordes a las restricciones presupuestales y operativas del cliente.
+El objetivo de este taller fue aplicar el marco de modelado de amenazas **STRIDE** (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service y Elevation of Privilege) para evaluar exhaustivamente la seguridad técnica y operativa de la arquitectura actual (AS-IS) de Insuclínicos Ltda. El análisis se concentró en el macro-proceso crítico de **Gestión y Cumplimiento de Pedido**, abarcando la interacción comercial con las clínicas vía WhatsApp, el almacenamiento de datos en hojas de cálculo locales de Microsoft Excel en red compartida (SMB) y los flujos manuales de despacho en planta física.
 
-## 🔧 Proceso de desarrollo
-El trabajo se desarrolló siguiendo una metodología estructurada en 5 pasos:
-1. **Selección y delimitación:** A partir de los modelos previos (BPMN y ArchiMate AS-IS), acotamos el análisis al PC de Administración, que actúa como el núcleo de datos (pedidos e inventario).
-2. **Construcción del DFD:** Dibujamos el diagrama de flujo de datos estableciendo un límite de confianza claro alrededor de la red local y el disco duro donde residen los archivos críticos.
-3. **Reconocimiento Pasivo:** En lugar de lanzar ataques, analizamos la topología AS-IS documentada (uso de hardware físico sin redundancia, carpetas compartidas, sesiones locales).
-4. **Aplicación de STRIDE:** Redactamos 6 escenarios de amenaza específicos (Suplantación, Alteración, Repudio, Divulgación, Denegación de Servicio y Elevación de Privilegios) adaptados a un entorno de ofimática local, alejándonos de los ejemplos web tradicionales.
-5. **Priorización:** Clasificamos los riesgos, destacando como críticos la Denegación de Servicio (punto único de falla del disco duro) y la Alteración (falta de integridad en los Excel).
+A través de este ejercicio, se identificaron vulnerabilidades estructurales en la integridad de los datos, el control de acceso y la continuidad del negocio, formulando mitigaciones pragmáticas y proporcionales a las dimensiones de una microempresa manufacturera.
 
-## 🧩 Análisis del modelo propuesto
-El modelo de amenazas entregado refleja de manera precisa la realidad operativa de la PyME. Se estructuró bajo el supuesto de que Insuclínicos no cuenta actualmente con infraestructura en la nube, Active Directory, ni políticas formales de ciberseguridad. 
-Las necesidades del cliente frente a la trazabilidad de inventario chocan directamente con los riesgos de **Alteración (Tampering)** y **Repudio (Repudiation)** detectados: al depender de celdas no protegidas y sin historial de versiones, cualquier error humano corrompe la operación. Las mitigaciones propuestas (GPOs, RBAC en NTFS, respaldos 3-2-1 y protección nativa de Office) fueron seleccionadas estratégicamente para mejorar la postura de seguridad sin requerir inversiones inmediatas en licencias de software empresarial.
+---
 
-## 📈 Diagrama final entregado
+## 🔧 Proceso de desarrollo y Metodología
+
+El modelado y evaluación de seguridad se ejecutó en cinco fases articuladas:
+
+1. **Delimitación del Alcance Operativo:** Se definió el perímetro del sistema actual considerando tanto los componentes digitales locales (PC Administración, PC Almacén, disco duro con libros de Excel) como los canales de terceros (Meta WhatsApp, plataforma de facturación electrónica Siigo S.A.S.) y los soportes físicos de manufactura (remisiones de despacho en papel).
+2. **Construcción del Diagrama de Flujo de Datos (DFD) con Límites de Confianza:** Se diseñó un DFD representativo que modela los actores externos (Clínicas), los procesos internos (Atención comercial, Control de inventario en Excel, Despacho en planta), los almacenes de datos y los flujos de información (F1 a F6), estableciendo tres **límites de confianza (Trust Boundaries)** claramente diferenciados:
+   - *Límite de Red Local (LAN Oficina):* Protege los equipos de cómputo y el almacenamiento en disco local C:\.
+   - *Límite de Servicios Nube / Terceros:* Delimita la infraestructura de Meta y Siigo que opera fuera del control directo de la empresa.
+   - *Límite Físico de Planta / Archivo:* Delimita el taller de confección y los registros manuscritos en papel.
+3. **Evidenciación y Fuentes de los Controles Existentes:** 
+   Para garantizar que la columna "Controles de Seguridad Existentes" se fundamente en hechos reales y no en suposiciones, las evidencias se recolectaron a través de dos fuentes primarias:
+   - **Entrevista técnica estructurada con el Representante Legal (Santiago Martínez):** Se constató la inexistencia de perfiles diferenciados de usuario en Windows, la ausencia de acuerdos de confidencialidad (NDA) con los operarios y el uso de líneas celulares personales (BYOD) sin gestión corporativa.
+   - **Inspección técnica directa en las instalaciones de Bogotá:** Se verificó la ausencia de contraseñas de protección en los libros `.xlsx`, el acceso total (permisos Everyone) en la carpeta de red compartida por SMB, y la falta de mecanismos de respaldo automatizado en la nube (la empresa depende de copias esporádicas en memorias USB).
+   - **Reconocimiento Pasivo Externo:** Se inspeccionó el perfil público de WhatsApp Business de la empresa y la interfaz web HTTPS de Siigo, validando que el canal móvil no cuenta con verificación en dos pasos corporativa y que la emisión fiscal depende exclusivamente de transcripción humana.
+4. **Identificación y Expansión de Amenazas (8 Escenarios STRIDE):** Se estructuraron 8 amenazas concretas, cubriendo las 6 categorías del marco más dos vectores críticos identificados en la retroalimentación: la fuga y pérdida de pedidos por el uso de WhatsApp en dispositivos personales (T7) y el deterioro o alteración de remisiones físicas en la planta de producción (T8).
+5. **Evaluación de Riesgo y Priorización:** Se evaluó el Impacto y la Probabilidad de cada amenaza con criterios homogéneos, catalogando como riesgos **Altos** aquellos que comprometen la continuidad operativa (DoS por daño del disco SPOF), la integridad del inventario (Tampering en Excel), la confidencialidad de la cartera comercial (fuga por USB o celulares BYOD) y la trazabilidad de cotizaciones.
+
+---
+
+## 📈 Diagrama de Flujo de Datos (DFD) con Límites de Confianza
 
 ```mermaid
 flowchart TD
-    A[Ventas / Administración] -->|F1: Ingreso manual de datos de cliente y pedido| B(P1: Gestión de Pedidos en Excel)
-    C[Almacén / Producción] -->|F2: Consulta de stock y descuento de tela| D(P2: Control de Inventario en Excel)
-    B -->|F3: Transcripción manual de totales| E[Plataforma Facturación Electrónica]
-    
-    B -->|F4: Lectura y escritura concurrente| F[(D1: Disco Duro Local - Archivos Excel)]
-    D -->|F4: Lectura y escritura concurrente| F
-    
-    classDef boundary fill:none,stroke:#FF0000,stroke-width:2px,stroke-dasharray: 5 5;
-    
-    subgraph RedLocalInsuclinicos [Red Local Insuclínicos]
-        B
-        D
-        F
+    %% Entidades Externas
+    E1["Clínicas y Hospitales\n(Clientes Externos)"]
+    E2["Plataforma Facturación DIAN\n(Siigo S.A.S. - Cloud)"]
+
+    %% Procesos Internos
+    P1["P1: Atención de Clientes y\nRegistro de Pedidos (Ventas)"]
+    P2["P2: Control de Stock y\nConsumo de Tela (Almacén)"]
+    P3["P3: Alistamiento, Embalaje\ny Despacho (Planta)"]
+
+    %% Almacenes de Datos
+    D1[("D1: Disco Duro Local PC Admin\n• Libro_Pedidos.xlsx\n• Libro_Inventario.xlsx")]
+    D2[("D2: Registros Físicos en Papel\n• Planillas de corte\n• Remisiones firmadas")]
+    D3[("D3: Smartphones Personales (BYOD)\n• Historial chats WhatsApp")]
+
+    %% Límites de Confianza (Trust Boundaries)
+    subgraph TB2 ["🌐 TB2: Límite Servicios Nube / Terceros"]
+        E2
+        D3
     end
-    class RedLocalInsuclinicos boundary
+
+    subgraph TB1 ["🏢 TB1: Límite Red Local (LAN) Oficina"]
+        P1
+        P2
+        D1
+    end
+
+    subgraph TB3 ["🏭 TB3: Límite Físico Planta / Archivo Manual"]
+        P3
+        D2
+    end
+
+    %% Flujos de Datos (F1 a F6)
+    E1 -->|"F1: Solicitudes de pedido vía WhatsApp / Correo"| D3
+    D3 -->|"F1: Notificación y lectura de mensajes en terminal móvil"| P1
+    P1 -->|"F2: Digitación manual de datos del cliente y pedido"| D1
+    P2 <-->|"F3: Consulta de existencias y descuento de tela vía SMB"| D1
+    P1 -->|"F4: Transcripción manual de totales despachados al portal web"| E2
+    P2 -->|"F5: Entrega de orden de confección y planilla de corte"| P3
+    P3 <-->|"F5: Diligenciamiento de remisión física y archivo manuscrito"| D2
+    P3 -->|"F6: Entrega física de paquetes quirúrgicos y remisión firmada"| E1
+
+    %% Estilos de los Límites
+    style TB1 fill:#F4F6F9,stroke:#0D5091,stroke-width:2px,stroke-dasharray: 6 4
+    style TB2 fill:#F8F9FA,stroke:#4285F4,stroke-width:2px,stroke-dasharray: 6 4
+    style TB3 fill:#FFFDF5,stroke:#D6B656,stroke-width:2px,stroke-dasharray: 6 4
 ```
-## 📋 Tabla de componentes y amenazas STRIDE (Insuclínicos Ltda.)
 
-A partir del Diagrama de Flujo de Datos (DFD) y el análisis de la arquitectura actual, se evaluaron las 6 categorías del marco STRIDE sobre los componentes operativos de la empresa:
+---
 
-| ID | Componente / Activo | Tipo STRIDE | Descripción de la Amenaza | Impacto | Nivel de Riesgo | Mitigación Recomendada | Responsable |
-|:--:|:---|:---:|:---|:---:|:---:|:---|:---|
-| **T1** | PC Administración / Usuario | **Spoofing** (Suplantación) | Operario o externo utiliza la sesión abierta del PC administrativo sin autenticación previa. | Medio | **Medio** | Implementar perfiles de usuario individuales con contraseñas seguras y bloqueo automático por inactividad. | Administración |
-| **T2** | Disco Duro Local (Archivos Excel) | **Tampering** (Alteración) | Modificación accidental o intencionada de fórmulas y registros de existencias de tela o pedidos. | Alto | **Alto** | Proteger celdas críticas y libros con contraseña nativa; establecer permisos de solo lectura para operarios. | Administración |
-| **T3** | Control de Inventario (Excel) | **Repudiation** (Repudio) | Modificación de existencias sin registro de autoría, imposibilitando rastrear quién descontó material. | Medio | **Alto** | Migrar hacia un registro transaccional con bitácora de auditoría en la arquitectura TO-BE. | Administración / Sistemas |
-| **T4** | Archivos Excel / WhatsApp | **Information Disclosure** (Divulgación) | Extracción no autorizada de cotizaciones, precios especiales o datos de clientes corporativos vía USB o chat. | Alto | **Medio** | Cifrado de archivos locales en reposo y definición de acuerdos de confidencialidad con los colaboradores. | Gerencia / Legal |
-| **T5** | Disco Duro Local PC Administración | **Denial of Service** (Denegación) | Pérdida total de acceso por fallo mecánico del disco duro, daño eléctrico o infección por malware/ransomware. | Alto | **Alto** | Implementar política de respaldos automatizados bajo esquema 3-2-1 con copia cifrada en almacenamiento cloud. | Administración / Proveedor TI |
-| **T6** | Red Local / Lectura concurrente | **Elevation of Privilege** (Elevación) | Empleados de planta acceden a carpetas compartidas con permisos completos de edición financiera. | Medio | **Medio** | Restringir permisos de red NTFS aplicando el principio de menor privilegio (PoLP). | Administración |
+## 📋 Matriz de Amenazas STRIDE Evaluada (Insuclínicos Ltda.)
+
+> **Nota metodológica de alineación:** Esta tabla coincide al 100% en identificadores, niveles de riesgo, descripciones y controles con el archivo de trabajo [`tabla-stride-cliente.xlsx`](./tabla-stride-cliente.xlsx), garantizando una única fuente de verdad técnica.
+
+| ID | Componente / Activo | Tipo STRIDE | Descripción de la Amenaza | Escenario de Ataque | Impacto | Probabilidad | Nivel de Riesgo | Controles Existentes (Fuente Verificada) | Mitigación Recomendada | Responsable | Estado |
+|:--:|:---|:---:|:---|:---|:---:|:---:|:---:|:---|:---|:---:|:---:|
+| **T1** | PC Administración / P1 (Usuarios) | **Spoofing** | Un operario o empleado administrativo utiliza el equipo de otro usuario que dejó su sesión abierta para registrar o alterar pedidos. | Un empleado aprovecha que el PC de Administración está desbloqueado, ingresa un pedido falso o aprueba una salida de inventario a nombre del usuario original. | Medio — Pérdida de integridad en el registro de pedidos e inventario. | Media | **Medio** | Ausencia de políticas de bloqueo de pantalla; sesiones de Windows compartidas sin perfiles individuales *(Fuente: Entrevista Santiago Martínez)*. | Implementar usuarios individuales en Windows con contraseña y políticas de bloqueo automático por inactividad. | Administración | En análisis |
+| **T2** | D1 (Disco Duro Local - Archivos Excel) | **Tampering** | Modificación accidental o intencionada de fórmulas, celdas críticas o registros históricos en el Libro de Pedidos o Inventario. | Un usuario sobrescribe por error una celda que contiene la fórmula de cálculo de stock de tela quirúrgica, corrompiendo el inventario. | Alto — Descuadre de inventario, detención de la producción por falsos faltantes. | Alta | **Alto** | Los archivos Excel no tienen protección de celdas ni bloqueo de estructura *(Fuente: Inspección directa en equipo)*. | Proteger celdas con fórmulas en Excel mediante contraseña y migrar los archivos a un entorno colaborativo o base de datos centralizada. | Equipo de Arquitectura | Pendiente |
+| **T3** | P2 / D1 (Control de Inventario en Excel) | **Repudiation** | Un usuario reduce o modifica las cantidades de materia prima disponible y posteriormente niega haberlo hecho. | Se detecta un faltante crítico de tela quirúrgica. Al revisar el Excel, se nota una reducción manual del stock, pero nadie asume la responsabilidad porque no hay registro de autoría. | Medio — Dificulta la auditoría interna y el control de mermas/desperdicios de confección. | Alta | **Medio** | El archivo local en el disco duro no guarda historial de versiones ni registro de quién modificó qué celda *(Fuente: Inspección técnica)*. | Habilitar el control de cambios en Excel y alojar el archivo en repositorio centralizado con bitácora de auditoría inmutable. | Administración | En progreso |
+| **T4** | D1 (Archivos Excel en Red Local) | **Information Disclosure** | Exposición y fuga no autorizada de la base de clientes corporativos y listas de precios confidenciales mediante copias locales. | Un empleado o externo copia el archivo Excel con la cartera de clínicas a una memoria USB para compartirlo con un competidor. | Alto — Fuga de información comercial sensible y pérdida de ventaja competitiva. | Media | **Alto** | No hay restricciones de puertos USB en Windows ni políticas de confidencialidad firmadas *(Fuente: Entrevista Santiago Martínez)*. | Deshabilitar puertos USB mediante políticas de grupo (GPO) en Windows y firmar acuerdos de confidencialidad (NDA). | Infraestructura / Legal | Pendiente |
+| **T5** | D1 (Disco Duro Local PC Administración - SPOF) | **Denial of Service** | Pérdida total de acceso a la información operativa por fallo físico del disco duro o ataque de ransomware. | Un ransomware infecta el PC de Administración o el disco duro sufre un fallo mecánico, encriptando o destruyendo el único registro de pedidos e inventario. | Alto — Paralización completa de la producción, despachos y facturación. | Media | **Alto** | Punto único de falla físico sin redundancia y sin copias de seguridad formales en la nube *(Fuente: Diagnóstico de infraestructura)*. | Implementar política de backups automatizados diarios en la nube siguiendo la regla 3-2-1. | Infraestructura | Pendiente |
+| **T6** | D1 / F3 (Recurso Compartido en Red Local SMB) | **Elevation of Privilege** | Acceso de usuarios de producción a información financiera o de facturación restringida a la administración. | Al compartir la carpeta en red para que Producción consulte los pedidos, un operario navega hacia la subcarpeta de facturación electrónica y accede a datos contables. | Medio — Exposición interna de datos financieros no correspondientes a las funciones del rol. | Alta | **Medio** | Carpetas compartidas en red local con permisos de control total (Lectura/Escritura) para Todos (Everyone) *(Fuente: Inspección de red)*. | Configurar Control de Acceso Basado en Roles (RBAC) a nivel de sistema de archivos (NTFS), restringiendo el acceso por carpetas según el perfil. | Equipo de Seguridad | En análisis |
+| **T7** | D3 / F1 (Smartphones Personales BYOD / WhatsApp) | **Information Disclosure** | Fuga de datos de clientes, pérdida de cotizaciones comerciales o suplantación por pérdida o uso no corporativo de móviles personales. | Un vendedor pierde su smartphone personal sin bloqueo biométrico, o un tercero accede a chats comerciales con clínicas con datos de facturación. | Alto — Exposición de datos personales protegidos (Ley 1581) y fuga de cotizaciones comerciales estratégicas. | Alta | **Alto** | Atención por WhatsApp desde líneas móviles personales sin gestión corporativa ni respaldo institucional *(Fuente: Reconocimiento pasivo del canal)*. | Migrar a una cuenta corporativa oficial de WhatsApp Business API vinculada a un conmutador/buzón centralizado y definir política BYOD. | Gerencia / Comercial | Pendiente |
+| **T8** | D2 / F5 (Registros Físicos en Papel en Planta) | **Tampering** | Pérdida física, deterioro accidental por tintas/aceites o adulteración manuscrita de planillas de corte y remisiones de entrega. | Una planilla de corte con el número de lote de tela SMS se traspapela o se mancha en el taller, impidiendo verificar el cumplimiento del lote ante un reclamo hospitalario. | Medio — Pérdida de trazabilidad sanitaria obligatoria según Decreto 4725 de 2005 del INVIMA. | Media | **Medio** | Archivo físico en archivadores de cartón sin control de acceso ni digitalización de respaldo *(Fuente: Inspección visual en planta)*. | Estandarizar el registro digital del número de lote desde la orden de pedido y digitalizar mediante escaneo fotográfico las remisiones firmadas. | Producción / Calidad | En análisis |
 
 ---
 
 ## 🔍 Investigación complementaria
 
-### Tema investigado:
-Estrategias pragmáticas de ciberseguridad y modelado de amenazas STRIDE en entornos con TI en la sombra (*Shadow IT*) y ofimática descentralizada para microempresas.
+**Tema investigado:** Estrategias de ciberseguridad pragmáticas y mitigación de amenazas STRIDE en microempresas manufactureras con alta dependencia de TI en la sombra (*Shadow IT*).
 
-### Resumen:
-En empresas de manufactura ligera de escala PyME (como Insuclínicos Ltda.), la infraestructura tecnológica suele carecer de cortafuegos dedicados, servidores de dominio o arquitecturas de microservicios. En estos contextos, los procesos críticos se sostienen sobre soluciones informales desarrolladas por los propios usuarios (*Shadow IT*), tales como libros de Microsoft Excel compartidos mediante unidades de red o carpetas locales, y canales comerciales por mensajería instantánea.
+**Resumen:**
+En organizaciones manufactureras de escala micro (menos de 10 empleados), la ciberseguridad no suele gestionarse mediante firewalls de última generación o centros de operaciones de seguridad (SOC). Los procesos de negocio dependen críticamente de soluciones ofimáticas improvisadas por los empleados (*Shadow IT*), tales como libros de Excel compartidos en red y teléfonos personales para atención al cliente.
 
-La literatura de ciberseguridad (CISA y el marco NIST CSF) advierte que aplicar STRIDE a estos sistemas requiere una aproximación pragmática: no se trata de auditar vulnerabilidades web como SQLi o XSS en servidores inexistentes, sino de identificar las fallas en los controles básicos de integridad, autenticación y disponibilidad. Para Insuclínicos, el análisis demostró que las amenazas más peligrosas corresponden a la **Denegación de Servicio (DoS)** por ausencia de redundancia física en el almacenamiento local, y a la **Alteración (Tampering)** por la inexistencia de controles de concurrencia y validación en las hojas de cálculo.
-
-Modernizar la postura de seguridad de estas organizaciones no exige la adquisición inmediata de costosas suites de ciberseguridad empresarial. La investigación confirma que la adopción de controles de **higiene digital básica** —como la regla de respaldo 3-2-1 (tres copias, dos medios distintos, una fuera de sede), el control de acceso basado en roles (RBAC) a nivel de sistema operativo y el cifrado nativo de archivos en reposo— permite mitigar hasta un 80% de los riesgos identificados, sentando la base de confianza requerida antes de abordar la migración hacia un sistema ERP/CRM centralizado en la nube.
+La literatura especializada (NIST Small Business Cybersecurity Guidelines y CISA Insights, 2023) enfatiza que aplicar STRIDE a estos entornos requiere enfocar el análisis en la **higiene digital fundamental**:
+1. **Priorización de la Disponibilidad y la Integridad:** El mayor impacto destructivo proviene de la **Denegación de Servicio (T5)** y la **Alteración de Datos (T2)**. Si el único disco duro que contiene la cartera de pedidos falla mecánicamente o es cifrado por ransomware, la empresa se paraliza de inmediato. La mitigación prioritaria consiste en adoptar la **regla de respaldo 3-2-1** (tres copias de los datos, dos tipos de soporte distintos y una copia externa cifrada en la nube).
+2. **Control de Acceso Básico (PoLP y RBAC):** La mitigación de amenazas como **Suplantación (T1)** y **Elevación de Privilegios (T6)** no exige licencias corporativas costosas; puede resolverse configurando perfiles individuales protegidos por contraseña en Windows 11 y restringiendo los permisos NTFS de las carpetas compartidas para que los operarios de almacén solo tengan acceso de lectura a los libros necesarios.
+3. **Gobierno de Canales Móviles (BYOD):** La incorporación de la amenaza **T7** valida las recomendaciones de MinTIC (2023): permitir que el personal comercial maneje pedidos sensibles desde sus celulares personales sin acuerdos de confidencialidad ni copias institucionales vulnera la Ley de Protección de Datos Personales (Ley 1581 de 2012) y deja a la empresa desprotegida ante la desvinculación laboral de un colaborador.
 
 ---
 
 ## 📚 Referencias
-
-- [1] Microsoft Corporation. (2022). *The STRIDE Threat Model*. Microsoft Security Engineering Guide. https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats
-- [2] Cybersecurity and Infrastructure Security Agency — CISA. (2023). *Data Backup Options and the 3-2-1 Rule*. CISA Insights. https://www.cisa.gov/
-- [3] OWASP Foundation. (2021). *OWASP Top 10:2021 — The Ten Most Critical Web Application Security Risks*. https://owasp.org/Top10/
-- [4] Microsoft Corporation. (2023). *Access Control and NTFS Permissions Overview*. Windows Security Documentation. https://learn.microsoft.com/en-us/windows/security/
-- [5] Universidad de La Sabana. (2026). *Guía Paso a Paso: Evaluación de Seguridad con STRIDE*. Material docente del curso AREM.
-- [6] Insuclínicos Ltda. (2026). *Ficha de Caracterización y Documento de Visión de Arquitectura*. Repositorio del proyecto AREM.
-
----
-
-_Este documento hace parte de la entrega del Taller 5 del curso AREM (Arquitectura Empresarial) — Universidad de La Sabana._
+* [1] Microsoft Corporation. (2022). *The STRIDE Threat Model*. Microsoft Security Engineering Guide. https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats
+* [2] Cybersecurity and Infrastructure Security Agency — CISA. (2023). *Data Backup Options and the 3-2-1 Rule for Small Business Resilience*. CISA Insights. https://www.cisa.gov/resources-tools/resources/data-backup-options
+* [3] National Institute of Standards and Technology — NIST. (2021). *Small Business Information Security: The Fundamentals (NIST SP 800-184 / Small Business Guide)*. U.S. Department of Commerce. https://www.nist.gov/itl/smallbusinesscyber
+* [4] Ministerio de Tecnologías de la Información y las Comunicaciones — MinTIC. (2023). *Guía de Ciberseguridad y Respaldo de Información para Micro, Pequeñas y Medianas Empresas en Colombia*. https://www.mintic.gov.co/
+* [5] OWASP Foundation. (2021). *OWASP Top 10: The Ten Most Critical Security Risks*. https://owasp.org/Top10/
+* [6] Insuclínicos Ltda. (2026). *Entrevista técnica operativa con Santiago Martínez (Representante Legal) y Ficha de Caracterización*. Archivo de campo Grupo 8 AREM.

@@ -44,11 +44,11 @@ Se consolidó una matriz de 15 criterios de cumplimiento distribuidos en 8 categ
 
 ### Paso 3: Evaluación del cumplimiento (Cumple / Parcial con evidencia)
 De acuerdo con las reglas metodológicas del curso, cada ítem se evaluó bajo solo dos estados posibles: **✅ Cumple** o **⚠️ Parcial**, sustentado con evidencias fácticas recopiladas del levantamiento con el cliente (Santiago Martínez, Representante Legal):
-- **✅ Cumple (2 ítems):** Retención documental legal contable (ítem 10) y emisión reglamentaria de facturas electrónicas vía plataforma autorizada (ítem 15).
-- **⚠️ Parcial (13 ítems):** Controles que actualmente no existen o están implementados de manera empírica, informal o incompleta en la operación cotidiana de la empresa.
+- **✅ Cumple (1 ítem):** Emisión reglamentaria de facturación electrónica validada ante la DIAN mediante el proveedor tecnológico Siigo S.A.S. (ítem 15), con soporte de validación previa CUFE y XML UBL 2.1.
+- **⚠️ Parcial (14 ítems):** Controles que actualmente no existen o están implementados de manera incompleta o empírica. Se reclasificó a este estado la retención documental (ítem 10), dado que si bien los comprobantes fiscales en Siigo cumplen el término de firmeza tributaria (Estatuto Tributario Art. 632 y 714 - 5 años), las planillas de producción y remisiones manuscritas en papel se descartan tras 2-3 años por espacio de bodega, configurando una brecha frente al plazo mínimo de 10 años exigido por el Código de Comercio (Art. 60).
 
 ### Paso 4: Documentación y análisis de riesgos de las brechas
-Cada uno de los 13 ítems marcados como **⚠️ Parcial** fue trasladado a la hoja `Brechas Identificadas` del archivo [`checklist-cliente.xlsx`](checklist-cliente.xlsx), analizando el impacto ante su no corrección en términos legales (investigaciones o sanciones de la Superintendencia de Industria y Comercio - SIC o requerimientos del INVIMA), operativos (pérdida irrecuperable de datos por fallo físico de disco o secuestro mediante ransomware) y comerciales (fuga de bases de datos de clientes y fórmulas de patronaje).
+Cada uno de los 14 ítems marcados como **⚠️ Parcial** fue trasladado a la hoja `Brechas Identificadas` del archivo [`checklist-cliente.xlsx`](checklist-cliente.xlsx), analizando el impacto ante su no corrección en términos legales (investigaciones o sanciones de la Superintendencia de Industria y Comercio - SIC o requerimientos del INVIMA), operativos (pérdida irrecuperable de datos por fallo físico de disco o secuestro mediante ransomware) y comerciales (fuga de bases de datos de clientes y fórmulas de patronaje).
 
 ### Paso 5: Priorización y formulación de recomendaciones accionables
 Se asignó el nivel de prioridad (**Alta**, **Media**, **Baja**) a cada brecha considerando la gravedad del riesgo, la probabilidad de materialización y la viabilidad económica/operativa para una microempresa de 6 trabajadores, garantizando que cada recomendación proporcione una solución concreta y de aplicación progresiva.
@@ -76,6 +76,7 @@ A continuación se resume la matriz de brechas priorizadas para Insuclínicos Lt
 | **Consentimiento** | Inexistencia de un canal formal y procedimiento documentado para el ejercicio de derechos ARCO. | **Medio** | Habilitar buzón formal de peticiones ARCO y definir protocolo operativo de respuesta en menos de 15 días hábiles. | **Media** |
 | **Protección de Datos** | No designación formal de Oficial o Responsable de Protección de Datos en la estructura de la empresa. | **Medio** | Formalizar el rol de responsable de protección de datos en cabeza del administrador con funciones y responsabilidades claras. | **Media** |
 | **Roles y Responsabilidades** | Contratos de trabajo sin cláusulas de confidencialidad, no divulgación y protección de datos. | **Medio** | Firmar otrosí de confidencialidad y custodia de información comercial/industrial con los 6 empleados de la planta. | **Media** |
+| **Retención** | Retención documental física incompleta frente al Código de Comercio Art. 60 (10 años), por descarte de remisiones y órdenes en papel tras 2-3 años. | **Medio** | Implementar protocolo de digitalización de soportes físicos y repositorio digital seguro con retención mínima de 10 años conforme a la ley mercantil. | **Media** |
 | **Retención** | Ausencia de protocolo formal de destrucción segura de remisiones físicas obsoletas y borrado de archivos temporales. | **Bajo** | Adquirir destructora de papel básica para la oficina y programar limpieza segura periódica de archivos temporales. | **Baja** |
 | **Seguridad** | Inexistencia de política formal escrita de seguridad de la información aprobada por gerencia. | **Bajo** | Redactar documento conciso de Política de Seguridad de la Información acorde a las dimensiones de Insuclínicos Ltda. | **Baja** |
 | **Roles y Responsabilidades** | Falta de capacitación y sensibilización al personal en ciberseguridad y protección de datos personales. | **Bajo** | Realizar taller anual interactivo sobre detección de phishing, ingeniería social en WhatsApp y manejo de datos. | **Baja** |
@@ -87,10 +88,10 @@ El diagnóstico no es una copia teórica o genérica; captura las tensiones real
 - **Exigencias sanitarias del sector salud:** Como fabricante de prendas médicas desechables destinadas a ambientes quirúrgicos y odontológicos, la trazabilidad del lote no es una recomendación opcional, sino una obligación del INVIMA. Una queja por desprendimiento de fibras o defecto de barrera microbiológica requiere aislar inmediatamente a qué clientes se despachó el lote afectado.
 - **Restricciones presupuestales:** Las recomendaciones evitan sugerir plataformas corporativas de costos prohibitivos (como ERPs enterprise o suites DLP de alto costo); en su lugar, plantean medidas de costo casi nulo o muy bajo: habilitación de perfiles nativos de Windows, cifrado con contraseña propio de Excel, anexos contractuales en papel, almacenamiento en nube empresarial básica con sincronización automática y estandarización de números de lote en las remisiones de entrega.
 
-### Supuestos tomados
-- Se asume que Insuclínicos Ltda., al ser una persona jurídica constituida como sociedad de responsabilidad limitada que trata datos de clientes y empleados, está sujeta al régimen de la Ley 1581 de 2012, pero por su tamaño de activos no está obligada a inscribir sus bases de datos en el RNBD de la SIC (privilegio de micro y pequeñas empresas según Decreto 090 de 2018), aunque sí debe cumplir con todos los principios sustantivos de autorización, seguridad y derechos ARCO.
-- Se asume que la plataforma de facturación electrónica utilizada cuenta con la debida certificación técnica y firma digital validada ante la DIAN, por lo que el proceso de emisión cumple los estándares vigentes.
-- Se asume que las prendas médicas elaboradas (batas quirúrgicas, campos, polainas, gorros y sábanas desechables) corresponden a dispositivos médicos Clase I (riesgo bajo o no invasivo), sujetos a notificación sanitaria o registro simplificado y al programa de Tecnovigilancia del INVIMA.
+### Supuestos y Evidencias Verificadas
+- **Facturación Electrónica DIAN Verificada:** Se constató y verificó operativamente que la empresa utiliza la plataforma SaaS **Siigo S.A.S.**, Proveedor Tecnológico formalmente habilitado e inscrito ante la DIAN bajo la **Resolución 000165 de 2023**. Esta plataforma genera el archivo XML con estándar UBL 2.1, estampa la firma digital certificada y obtiene la validación previa del Código Único de Facturación Electrónica (CUFE) de forma automática para cada comprobante emitido.
+- **Términos de Retención Documental Diferenciados:** Se constató que Insuclínicos Ltda. conserva las facturas electrónicas emitidas en los servidores en la nube de Siigo durante el término legal tributario de 5 años (Estatuto Tributario Art. 632 y Art. 714). No obstante, para los soportes físicos en papel (remisiones y planillas de confección en planta), la empresa carece de espacio físico de archivo rodante y descarta los documentos a los 2-3 años, configurando una brecha frente al plazo de conservación de 10 años exigido para libros y papeles de comercio por el **Artículo 60 del Código de Comercio**.
+- **Marco Regulatorio Sectorial:** Insuclínicos Ltda., al ser una sociedad de responsabilidad limitada constituida en Bogotá, está sujeta a la vigilancia de la Superintendencia de Industria y Comercio (SIC) en materia de protección de datos personales (Ley 1581 de 2012 y Decreto 1377 de 2013), la DIAN en materia tributaria, y el INVIMA respecto a la tecnovigilancia y trazabilidad de prendas quirúrgicas hospitalarias en tela no tejida SMS (Decreto 4725 de 2005 y Resolución 4816 de 2008). Por su volumen de activos se acoge a la exención del RNBD (Decreto 090 de 2018), manteniendo plenamente vigentes los deberes de autorización y seguridad.
 
 ---
 
@@ -112,7 +113,8 @@ flowchart TD
         c_invima(["🚫 C2: Trazabilidad de lotes y Tecnovigilancia\n(Dcto 4725/2005 y Res 4816/2008)"]):::motivacion
         c_iso_backup(["🚫 C3: Esquema de continuidad y backup 3-2-1\n(ISO/IEC 27001 A.8.13)"]):::motivacion
         c_iso_access(["🚫 C4: Control de accesos y perfiles individuales\n(ISO/IEC 27001 A.5.15)"]):::motivacion
-        c_dian(["✅ C5: Facturación electrónica validada previa\n(DIAN Res 000165/2023)"]):::motivacion
+        c_dian(["✅ C5: Facturación electrónica validada previa con CUFE\n(DIAN Res 000165/2023 / Siigo S.A.S.)"]):::motivacion
+    c_retencion(["🚫 C6: Retención 10 años soportes y remisiones\n(Código de Comercio Art. 60)"]):::motivacion
     end
 
     %% Procesos de Negocio
@@ -129,7 +131,7 @@ flowchart TD
         app_ws["WhatsApp / Teléfono Móvil"]:::aplicacion
         app_excel["Excel Operativo (Pedidos, Inventario, Costeo)"]:::aplicacion
         app_papel["Remisiones Físicas y Registros en Papel"]:::aplicacion
-        app_dian["Plataforma Web de Facturación Electrónica"]:::aplicacion
+        app_dian["Plataforma Web SaaS Siigo S.A.S. (Facturación DIAN)"]:::aplicacion
     end
 
     %% Relaciones de Restricción (Constraints restringen Procesos y Aplicaciones)
