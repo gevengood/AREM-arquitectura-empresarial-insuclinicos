@@ -24,7 +24,7 @@ Hoy la operación diaria de Insuclínicos Ltda. (6 empleados atendiendo a ~40 cl
 - **Centralizar pedidos, clientes e inventario en un solo sistema web en la nube** (CRM/ERP ligero para PyMEs), de modo que al aprobar un pedido se reserve automáticamente el material disponible sin bloqueos de lectura/escritura ni doble digitación hacia la facturación electrónica.
 - **Conectar digitalmente la planta de confección y garantizar la trazabilidad sanitaria INVIMA**, registrando desde una Tablet en planta el lote de tela quirúrgica SMS usado en cada orden e imprimiéndolo en la remisión digital de la clínica.
 - **Blindar la continuidad y el cumplimiento legal desde el primer mes**, implementando copias de seguridad automáticas diarias en la nube, cuentas de usuario individuales por rol y aviso de privacidad de datos personales (Ley 1581) en el canal de WhatsApp Business.
-- **Ejecutar un plan gradual en 3 fases (12 semanas)** dentro del presupuesto de la empresa (`~ $2.2M COP/año`), empezando por las mejoras rápidas de seguridad y respaldo en las primeras 2 semanas.
+- **Ejecutar un plan gradual en 4 fases (12 semanas)** dentro del presupuesto de la empresa (`~ $2.2M COP/año`), empezando por las mejoras rápidas de seguridad y respaldo en las primeras 2 semanas.
 
 ## 🗺️ Cómo se implementa
 
@@ -34,7 +34,7 @@ Ver el **[Resumen Ejecutivo (`resumen-ejecutivo.md`)](resumen-ejecutivo.md)** �
 
 ## 📂 Si quiere ver el detalle técnico completo
 
-Todo el análisis que sustenta esta propuesta está documentado carpeta por carpeta (Fases `00` a `08` consolidadas), siguiendo la metodología del curso:
+Todo el análisis que sustenta esta propuesta está documentado carpeta por carpeta (Fases `00` a `09` consolidadas), siguiendo la metodología del curso:
 
 | Carpeta | Qué contiene | Entregables principales |
 |---|---|---|
@@ -47,6 +47,7 @@ Todo el análisis que sustenta esta propuesta está documentado carpeta por carp
 | **[`06-normatividad/`](06-normatividad/)** | Auditoría de cumplimiento legal y normativo (Ley 1581, INVIMA Dec. 4725, ISO 27001) | [Checklist Normativo (`checklist-cliente.xlsx`)](06-normatividad/checklist-cliente.xlsx) · [Informe de Normatividad](06-normatividad/informe.md) · [Referencias](06-normatividad/referencias.md) |
 | **[`07-opportunities-solutions/`](07-opportunities-solutions/)** | La arquitectura objetivo (TO-BE), matriz de brechas, matriz de decisión ponderada y paquetes de trabajo | [Documento Mejora TO-BE (`mejora-arquitectura.md`)](07-opportunities-solutions/mejora-arquitectura.md) · [Informe (`informe.md`)](07-opportunities-solutions/informe.md) · [TO-BE Aplicaciones (`to-be-aplicaciones-final.drawio`)](07-opportunities-solutions/to-be-aplicaciones-final.drawio) · [TO-BE Tecnología (`to-be-tecnologia-final.drawio`)](07-opportunities-solutions/to-be-tecnologia-final.drawio) · [Matriz de Brechas (`matriz-brechas.xlsx`)](07-opportunities-solutions/matriz-brechas.xlsx) · [Referencias](07-opportunities-solutions/referencias.md) |
 | **[`08-integracion-vistas/`](08-integracion-vistas/)** | Integración vertical en 5 capas (AS-IS + TO-BE) y verificación de consistencia entre vistas | [Tablero Integrado (`tablero-integrado-cliente.drawio`)](08-integracion-vistas/tablero-integrado-cliente.drawio) · [Informe Integración](08-integracion-vistas/informe.md) · [Referencias](08-integracion-vistas/referencias.md) · [Trabajo en Clase FarmApp](08-integracion-vistas/clase/notas.md) |
+| **[`09-presentacion-final/`](09-presentacion-final/)** | Comité de Arquitectura final: presentación ejecutiva, matriz de riesgos en 7 dominios, roadmap, gobernanza, ADRs y vistas ArchiMate | [Presentación (`presentacion.pptx`)](09-presentacion-final/presentacion.pptx) · [PDF (`presentacion.pdf`)](09-presentacion-final/presentacion.pdf) · [Matriz de Riesgos (`matriz-riesgos.xlsx`)](09-presentacion-final/matriz-riesgos.xlsx) · [Plan Implementación](09-presentacion-final/plan-implementacion.md) · [Gobernanza](09-presentacion-final/plan-gobernanza.md) · [Cambios y ADR](09-presentacion-final/procedimiento-cambios.md) · [Vistas ArchiMate](09-presentacion-final/vistas-finales/) · [Retroalimentación](09-presentacion-final/retroalimentacion-cliente.md) · [Reflexiones](09-presentacion-final/reflexiones/) · [Referencias](09-presentacion-final/referencias.md) |
 
 ---
 
@@ -94,13 +95,31 @@ AREM-arquitectura-empresarial-insuclinicos/
 │   ├── mejora-arquitectura.md
 │   ├── informe.md
 │   └── referencias.md
-└── 08-integracion-vistas/
-    ├── tablero-integrado-cliente.drawio
-    ├── informe.md
+├── 08-integracion-vistas/
+│   ├── tablero-integrado-cliente.drawio
+│   ├── informe.md
+│   ├── referencias.md
+│   └── clase/
+│       ├── tablero-farmapp.drawio
+│       └── notas.md
+└── 09-presentacion-final/
+    ├── presentacion.pptx
+    ├── presentacion.pdf
+    ├── matriz-riesgos.xlsx
+    ├── resumen-ejecutivo.md
+    ├── plan-implementacion.md
+    ├── plan-gobernanza.md
+    ├── procedimiento-cambios.md
+    ├── retroalimentacion-cliente.md
     ├── referencias.md
-    └── clase/
-        ├── tablero-farmapp.drawio
-        └── notas.md
+    ├── vistas-finales/
+    │   ├── archimate-motivacion.drawio
+    │   ├── archimate-motivacion.png
+    │   ├── archimate-migracion.drawio
+    │   └── archimate-migracion.png
+    └── reflexiones/
+        ├── Jorge Doncel.md
+        └── Santiago Buendia.md
 ```
 
 ---

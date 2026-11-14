@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="archimate_view" name="ArchiMate Migracion - Insuclinicos">
+    <mxGraphModel dx="1422" dy="820" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1540" pageHeight="940" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="lane_1" value="1. PLATEAUS" style="swimlane;horizontal=0;startSize=36;fillColor=#FED7AA;swimlaneFillColor=#FFF7ED;strokeColor=#FDBA74;fontColor=#9A3412;fontSize=11;fontStyle=1;dashed=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="28" y="84" width="1484" height="152" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_2" value="2. GAPS (T7)" style="swimlane;horizontal=0;startSize=36;fillColor=#BBF7D0;swimlaneFillColor=#F0FDF4;strokeColor=#86EFAC;fontColor=#166534;fontSize=11;fontStyle=1;dashed=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="28" y="298" width="1484" height="134" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_3" value="3. WORK PACKAGES" style="swimlane;horizontal=0;startSize=36;fillColor=#FDE68A;swimlaneFillColor=#FFFBEB;strokeColor=#FCD34D;fontColor=#92400E;fontSize=11;fontStyle=1;dashed=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="28" y="480" width="1484" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_4" value="4. GOB. &amp; CAP." style="swimlane;horizontal=0;startSize=36;fillColor=#DDD6FE;swimlaneFillColor=#F5F3FF;strokeColor=#C4B5FD;fontColor=#4C1D95;fontSize=11;fontStyle=1;dashed=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="28" y="678" width="1484" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="banner2" value="&lt;b&gt;ArchiMate 3.2 — Vista de Implementación y Migración (Plateaus · Gaps · Work Packages)&lt;/b&gt;&lt;br&gt;&lt;span style='font-size:11px;font-weight:normal'&gt;Insuclínicos Ltda. · Transición en 4 fases (12 semanas) conectando los 10 GAPs del Taller 7 al Plateau TO-BE bajo Gobierno ligero&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#14263C;strokeColor=#14263C;fontColor=#FFFFFF;fontSize=15;fontStyle=1;align=left;spacingLeft=16;" vertex="1" parent="1">
+          <mxGeometry x="28" y="14" width="1484" height="58" as="geometry"/>
+        </mxCell>
+        <mxCell id="p_asis" value="&lt;i&gt;«Plateau»&lt;/i&gt;&lt;br&gt;&lt;b&gt;AS-IS Actual (Diagnóstico 2026)&lt;/b&gt;&lt;br&gt;2 Excel locales en disco único (SPOF) · sesiones compartidas,&lt;br&gt;SMB abiertas · órdenes en papel a planta · sin lote INVIMA,&lt;br&gt;doble digitación DIAN y WhatsApp sin Ley 1581" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#FFE4E6;strokeColor=#BE123C;fontColor=#14263C;shape=mxgraph.archimate3.application;appType=plateau;archiType=square;fontSize=11;verticalAlign=middle;align=center;spacing=6;dashed=0;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="82" y="96" width="410" height="128" as="geometry"/>
+        </mxCell>
+        <mxCell id="p_trans" value="&lt;i&gt;«Plateau»&lt;/i&gt;&lt;br&gt;&lt;b&gt;Plateau Intermedio (Semanas 1–4)&lt;/b&gt;&lt;br&gt;Operación protegida contra pérdida (Backup 3-2-1, 6 cuentas&lt;br&gt;nominales, USB/SMB bloqueados, aviso Ley 1581) + instancia&lt;br&gt;Cloud PostgreSQL lista con ~40 clínicas y SMS saneados" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#FFEDD5;strokeColor=#CC6600;fontColor=#14263C;shape=mxgraph.archimate3.application;appType=plateau;archiType=square;fontSize=11;verticalAlign=middle;align=center;spacing=6;dashed=0;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="555" y="96" width="425" height="128" as="geometry"/>
+        </mxCell>
+        <mxCell id="p_tobe" value="&lt;i&gt;«Plateau»&lt;/i&gt;&lt;br&gt;&lt;b&gt;Plateau TO-BE Consolidado (Semana 12)&lt;/b&gt;&lt;br&gt;CRM/ERP Cloud PostgreSQL (~$2.2M/año) + RBAC &amp;amp; audit_log +&lt;br&gt;Exportador CSV DIAN + Tablet Planta WPA3 con lote_sms_invima&lt;br&gt;obligatorio y Remisión Digital PDF sin papel" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#D1FAE5;strokeColor=#1C7150;fontColor=#14263C;shape=mxgraph.archimate3.application;appType=plateau;archiType=square;fontSize=11;verticalAlign=middle;align=center;spacing=6;dashed=0;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="96" width="425" height="128" as="geometry"/>
+        </mxCell>
+        <mxCell id="gap1" value="&lt;i&gt;«Gap»&lt;/i&gt;&lt;br&gt;&lt;b&gt;GAP-03, GAP-06, GAP-08, GAP-10&lt;/b&gt;&lt;br&gt;SPOF disco local (T5), sesiones compartidas (T1/T6),&lt;br&gt;fuga por USB (T4) y canal WhatsApp sin Ley 1581" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#DCFCE7;strokeColor=#15803D;fontColor=#14263C;shape=mxgraph.archimate3.application;appType=gap;archiType=rounded;fontSize=11;verticalAlign=middle;align=center;spacing=6;dashed=1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="185" y="310" width="355" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="gap2" value="&lt;i&gt;«Gap»&lt;/i&gt;&lt;br&gt;&lt;b&gt;GAP-01, GAP-02, GAP-04, GAP-07&lt;/b&gt;&lt;br&gt;Silos entre 2 Excel, bloqueos diarios LAN, maestros sucios,&lt;br&gt;sin bitácora (T2/T3) y doble digitación hacia DIAN" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#DCFCE7;strokeColor=#15803D;fontColor=#14263C;shape=mxgraph.archimate3.application;appType=gap;archiType=rounded;fontSize=11;verticalAlign=middle;align=center;spacing=6;dashed=1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="620" y="310" width="385" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="gap3" value="&lt;i&gt;«Gap»&lt;/i&gt;&lt;br&gt;&lt;b&gt;GAP-05, GAP-09 (Planta e INVIMA)&lt;/b&gt;&lt;br&gt;Órdenes físicas impresas en papel hasta confección y&lt;br&gt;ausencia de vínculo lote rollo SMS → remisión clínica" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#DCFCE7;strokeColor=#15803D;fontColor=#14263C;shape=mxgraph.archimate3.application;appType=gap;archiType=rounded;fontSize=11;verticalAlign=middle;align=center;spacing=6;dashed=1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1085" y="310" width="345" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="m_wp1" value="&lt;i&gt;«Work Package»&lt;/i&gt;&lt;br&gt;&lt;b&gt;WP1 · Quick win (Sem 1–2)&lt;/b&gt;&lt;br&gt;Backup 3-2-1, 6 cuentas nominales,&lt;br&gt;cierre SMB/USB y WhatsApp Ley 1581&lt;br&gt;&lt;i&gt;Riesgos: R3, R5, R6 · Esfuerzo: Bajo&lt;/i&gt;" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#FFCC99;strokeColor=#CC6600;fontColor=#14263C;shape=mxgraph.archimate3.application;appType=workPackage;archiType=rounded;fontSize=11;verticalAlign=middle;align=center;spacing=6;dashed=0;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="82" y="493" width="325" height="124" as="geometry"/>
+        </mxCell>
+        <mxCell id="m_wp2a" value="&lt;i&gt;«Work Package»&lt;/i&gt;&lt;br&gt;&lt;b&gt;WP2-A · Corto plazo (Sem 3–4)&lt;/b&gt;&lt;br&gt;Provisión Cloud PostgreSQL, depuración&lt;br&gt;maestros SMS/clínicas y esquema DIAN&lt;br&gt;&lt;i&gt;Riesgos: R8 (prepara R7) · Esfuerzo: Bajo&lt;/i&gt;" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#FFCC99;strokeColor=#CC6600;fontColor=#14263C;shape=mxgraph.archimate3.application;appType=workPackage;archiType=rounded;fontSize=11;verticalAlign=middle;align=center;spacing=6;dashed=0;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="438" y="493" width="325" height="124" as="geometry"/>
+        </mxCell>
+        <mxCell id="m_wp2b" value="&lt;i&gt;«Work Package»&lt;/i&gt;&lt;br&gt;&lt;b&gt;WP2-B · Mediano plazo (Sem 5–8)&lt;/b&gt;&lt;br&gt;Despliegue CRM/ERP, Kardex, RBAC,&lt;br&gt;audit_log, exportador DIAN y marcha blanca&lt;br&gt;&lt;i&gt;Riesgos: R1, R2, R7 · Esfuerzo: Medio&lt;/i&gt;" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#FFCC99;strokeColor=#CC6600;fontColor=#14263C;shape=mxgraph.archimate3.application;appType=workPackage;archiType=rounded;fontSize=11;verticalAlign=middle;align=center;spacing=6;dashed=0;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="794" y="493" width="335" height="124" as="geometry"/>
+        </mxCell>
+        <mxCell id="m_wp3" value="&lt;i&gt;«Work Package»&lt;/i&gt;&lt;br&gt;&lt;b&gt;WP3 · Largo plazo (Sem 9–12)&lt;/b&gt;&lt;br&gt;Wi-Fi WPA3 planta, Tablet Web y módulo&lt;br&gt;obligatorio de lotes INVIMA + PDF&lt;br&gt;&lt;i&gt;Riesgos: R4, R7 · Esfuerzo: Medio&lt;/i&gt;" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#FFCC99;strokeColor=#CC6600;fontColor=#14263C;shape=mxgraph.archimate3.application;appType=workPackage;archiType=rounded;fontSize=11;verticalAlign=middle;align=center;spacing=6;dashed=0;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="493" width="332" height="124" as="geometry"/>
+        </mxCell>
+        <mxCell id="gov_box" value="&lt;i&gt;«Principle» · Gobernanza y Decisiones (Sección 6)&lt;/i&gt;&lt;br&gt;&lt;b&gt;P1 Sobriedad (&amp;lt;=$3M/año) · P2 Fuente Única INVIMA · P3 Seguridad Pragmática&lt;/b&gt;&lt;br&gt;Comité ligero quincenal (criterio conformidad TO-BE) · ADR #1 (Cloud ERP) &amp;amp; ADR #2 (Tablet/CSV) · Riesgos R9 y R10 aceptado" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#CCCCFF;strokeColor=#6666CC;fontColor=#14263C;shape=mxgraph.archimate3.application;appType=principle;archiType=oct;fontSize=11;verticalAlign=middle;align=center;spacing=6;dashed=0;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="82" y="690" width="680" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="cap_box" value="&lt;i&gt;«Capability» · Capacidades Mejoradas al alcanzar Plateau TO-BE (Taller 7)&lt;/i&gt;&lt;br&gt;&lt;b&gt;CAP-01 Pedidos (2→4) · CAP-02 Inventario SMS (1→4) · CAP-03 Producción (2→4)&lt;/b&gt;&lt;br&gt;&lt;b&gt;CAP-04 Trazabilidad INVIMA (1→4) · CAP-05 Facturación DIAN (3→4) · CAP-06 Continuidad (1→4)&lt;/b&gt;" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#F5DEB3;strokeColor=#B7791F;fontColor=#14263C;shape=mxgraph.archimate3.application;appType=capability;archiType=rounded;fontSize=11;verticalAlign=middle;align=center;spacing=6;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="794" y="690" width="698" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg2" value="&lt;b&gt;Leyenda ArchiMate 3.2 (Sección 7.1 Implementación y Migración)&lt;/b&gt;&lt;br&gt;• Elementos: &lt;b&gt;Plateau&lt;/b&gt; = estado estable de transición · &lt;b&gt;Gap&lt;/b&gt; (verde punteado) = brecha del Taller 7 que separa Plateaus · &lt;b&gt;Work Package&lt;/b&gt; (durazno) = cada fila del plan de implementación · &lt;b&gt;Principle&lt;/b&gt; (lila) y &lt;b&gt;Capability&lt;/b&gt; (dorado).&lt;br&gt;• Relaciones exactas: &lt;b&gt;Asociación sólida sin flecha (—)&lt;/b&gt; vincula cada Gap con sus Plateaus y con el Work Package que lo cierra · &lt;b&gt;Realización (- - ▷)&lt;/b&gt; conecta cada Work Package con el Plateau que produce · &lt;b&gt;Triggering (→)&lt;/b&gt; secuencia fases · &lt;b&gt;Influencia (- - &amp;gt;)&lt;/b&gt; desde Gobernanza orienta los Work Packages." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;fontColor=#1E293B;fontSize=11;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=8;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="28" y="810" width="1484" height="112" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge_1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=0;endArrow=block;endFill=1;strokeColor=#CC6600;strokeWidth=1.6;fontSize=10;fontColor=#CC6600;labelBackgroundColor=#FFFFFF;exitX=1.0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="m_wp1" target="m_wp2a">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge_2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=0;endArrow=block;endFill=1;strokeColor=#CC6600;strokeWidth=1.6;fontSize=10;fontColor=#CC6600;labelBackgroundColor=#FFFFFF;exitX=1.0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="m_wp2a" target="m_wp2b">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge_3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=0;endArrow=block;endFill=1;strokeColor=#CC6600;strokeWidth=1.6;fontSize=10;fontColor=#CC6600;labelBackgroundColor=#FFFFFF;exitX=1.0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="m_wp2b" target="m_wp3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge_4" value="asocia" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=0;endArrow=none;strokeColor=#15803D;strokeWidth=1.4;fontSize=10;fontColor=#15803D;labelBackgroundColor=#FFFFFF;exitX=0.41;exitY=1.0;exitDx=0;exitDy=0;entryX=0.296;entryY=0.0;entryDx=0;entryDy=0;" edge="1" parent="1" source="p_asis" target="gap1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="250" y="250"/>
+              <mxPoint x="290" y="250"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_5" value="asocia" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=0;endArrow=none;strokeColor=#15803D;strokeWidth=1.4;fontSize=10;fontColor=#15803D;labelBackgroundColor=#FFFFFF;exitX=0.634;exitY=0.0;exitDx=0;exitDy=0;entryX=0.365;entryY=1.0;entryDx=0;entryDy=0;" edge="1" parent="1" source="gap1" target="p_trans">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="410" y="250"/>
+              <mxPoint x="710" y="250"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=0;endArrow=none;strokeColor=#15803D;strokeWidth=1.4;fontSize=10;fontColor=#15803D;labelBackgroundColor=#FFFFFF;exitX=0.588;exitY=1.0;exitDx=0;exitDy=0;entryX=0.481;entryY=0.0;entryDx=0;entryDy=0;" edge="1" parent="1" source="p_trans" target="gap2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge_7" value="asocia" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=0;endArrow=none;strokeColor=#15803D;strokeWidth=1.4;fontSize=10;fontColor=#15803D;labelBackgroundColor=#FFFFFF;exitX=0.649;exitY=0.0;exitDx=0;exitDy=0;entryX=0.376;entryY=1.0;entryDx=0;entryDy=0;" edge="1" parent="1" source="gap2" target="p_tobe">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="870" y="250"/>
+              <mxPoint x="1210" y="250"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=0;endArrow=none;strokeColor=#15803D;strokeWidth=1.4;fontSize=10;fontColor=#15803D;labelBackgroundColor=#FFFFFF;exitX=0.568;exitY=1.0;exitDx=0;exitDy=0;entryX=0.203;entryY=0.0;entryDx=0;entryDy=0;" edge="1" parent="1" source="p_asis" target="gap3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="315" y="286"/>
+              <mxPoint x="1155" y="286"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_9" value="asocia" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=0;endArrow=none;strokeColor=#15803D;strokeWidth=1.4;fontSize=10;fontColor=#15803D;labelBackgroundColor=#FFFFFF;exitX=0.681;exitY=0.0;exitDx=0;exitDy=0;entryX=0.635;entryY=1.0;entryDx=0;entryDy=0;" edge="1" parent="1" source="gap3" target="p_tobe">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge_10" value="cierra" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=0;endArrow=none;strokeColor=#166534;strokeWidth=1.4;fontSize=10;fontColor=#166534;labelBackgroundColor=#FFFFFF;exitX=0.548;exitY=0.0;exitDx=0;exitDy=0;entryX=0.211;entryY=1.0;entryDx=0;entryDy=0;" edge="1" parent="1" source="m_wp1" target="gap1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge_11" value="prepara" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=0;endArrow=none;strokeColor=#166534;strokeWidth=1.4;fontSize=10;fontColor=#166534;labelBackgroundColor=#FFFFFF;exitX=0.729;exitY=0.0;exitDx=0;exitDy=0;entryX=0.143;entryY=1.0;entryDx=0;entryDy=0;" edge="1" parent="1" source="m_wp2a" target="gap2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge_12" value="cierra" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=0;endArrow=none;strokeColor=#166534;strokeWidth=1.4;fontSize=10;fontColor=#166534;labelBackgroundColor=#FFFFFF;exitX=0.331;exitY=0.0;exitDx=0;exitDy=0;entryX=0.74;entryY=1.0;entryDx=0;entryDy=0;" edge="1" parent="1" source="m_wp2b" target="gap2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge_13" value="cierra" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=0;endArrow=none;strokeColor=#166534;strokeWidth=1.4;fontSize=10;fontColor=#166534;labelBackgroundColor=#FFFFFF;exitX=0.301;exitY=0.0;exitDx=0;exitDy=0;entryX=0.507;entryY=1.0;entryDx=0;entryDy=0;" edge="1" parent="1" source="m_wp3" target="gap3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge_14" value="realiza" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=block;endFill=0;strokeColor=#B4552B;strokeWidth=1.5;fontSize=10;fontColor=#B4552B;labelBackgroundColor=#FFFFFF;exitX=0.163;exitY=0.0;exitDx=0;exitDy=0;entryX=0.2;entryY=1.0;entryDx=0;entryDy=0;" edge="1" parent="1" source="m_wp1" target="p_trans">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="135" y="268"/>
+              <mxPoint x="640" y="268"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_15" value="realiza" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=block;endFill=0;strokeColor=#B4552B;strokeWidth=1.5;fontSize=10;fontColor=#B4552B;labelBackgroundColor=#FFFFFF;exitX=0.431;exitY=0.0;exitDx=0;exitDy=0;entryX=0.459;entryY=1.0;entryDx=0;entryDy=0;" edge="1" parent="1" source="m_wp2a" target="p_trans">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="578" y="268"/>
+              <mxPoint x="750" y="268"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_16" value="realiza" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=block;endFill=0;strokeColor=#B4552B;strokeWidth=1.5;fontSize=10;fontColor=#B4552B;labelBackgroundColor=#FFFFFF;exitX=0.74;exitY=0.0;exitDx=0;exitDy=0;entryX=0.318;entryY=1.0;entryDx=0;entryDy=0;" edge="1" parent="1" source="m_wp2b" target="p_tobe">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1042" y="268"/>
+              <mxPoint x="1185" y="268"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_17" value="realiza" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=block;endFill=0;strokeColor=#B4552B;strokeWidth=1.5;fontSize=10;fontColor=#B4552B;labelBackgroundColor=#FFFFFF;exitX=0.91;exitY=0.0;exitDx=0;exitDy=0;entryX=0.871;entryY=1.0;entryDx=0;entryDy=0;" edge="1" parent="1" source="m_wp3" target="p_tobe">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1462" y="268"/>
+              <mxPoint x="1420" y="268"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_18" value="restringe / supervisa" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;endFill=0;strokeColor=#6666CC;strokeWidth=1.4;fontSize=10;fontColor=#6666CC;labelBackgroundColor=#FFFFFF;exitX=0.24;exitY=0.0;exitDx=0;exitDy=0;entryX=0.502;entryY=1.0;entryDx=0;entryDy=0;" edge="1" parent="1" source="gov_box" target="m_wp1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge_19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;endFill=0;strokeColor=#6666CC;strokeWidth=1.4;fontSize=10;fontColor=#6666CC;labelBackgroundColor=#FFFFFF;exitX=0.938;exitY=0.0;exitDx=0;exitDy=0;entryX=0.078;entryY=1.0;entryDx=0;entryDy=0;" edge="1" parent="1" source="gov_box" target="m_wp2b">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="720" y="654"/>
+              <mxPoint x="820" y="654"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_20" value="incrementa madurez" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=block;endFill=0;strokeColor=#B7791F;strokeWidth=1.5;fontSize=10;fontColor=#B7791F;labelBackgroundColor=#FFFFFF;exitX=0.496;exitY=1.0;exitDx=0;exitDy=0;entryX=0.238;entryY=0.0;entryDx=0;entryDy=0;" edge="1" parent="1" source="m_wp2b" target="cap_box">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge_21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=block;endFill=0;strokeColor=#B7791F;strokeWidth=1.5;fontSize=10;fontColor=#B7791F;labelBackgroundColor=#FFFFFF;exitX=0.497;exitY=1.0;exitDx=0;exitDy=0;entryX=0.761;entryY=0.0;entryDx=0;entryDy=0;" edge="1" parent="1" source="m_wp3" target="cap_box">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,54 +1,52 @@
-# Resumen Ejecutivo — Propuesta de Mejora Operativa y Tecnológica para Insuclínicos Ltda.
+# Resumen Ejecutivo del Proyecto Arquitectónico
 
-**Cliente:** Insuclínicos Ltda. (Representante legal: Santiago Martínez)  
-**Equipo Consultor (Grupo 8):** Jorge Steven Doncel Bejarano · David Santiago Buendia Londoño  
-**Universidad de La Sabana — Arquitectura Empresarial (2026)**
+## Nombre del Cliente
+**Insuclínicos Ltda.** — Fabricación y comercialización de prendas e insumos médicos quirúrgicos desechables en tela no tejida SMS (Bogotá D.C., Colombia · Representante Legal: Santiago Martínez · 6 trabajadores · ~40 clínicas, consultorios odontológicos y spas).
 
----
+## Objetivo General del Proyecto
+Diagnosticar la arquitectura empresarial actual (AS-IS) de **Insuclínicos Ltda.** en su macro-proceso crítico de *Gestión y Cumplimiento de Pedido*, identificar riesgos técnicos, operativos, de seguridad y regulatorios, y definir una arquitectura objetivo (TO-BE) implementable de forma gradual y dentro del presupuesto PyME (`<= $3.000.000 COP/año`), que elimine los silos de Excel, proteja la continuidad de la información y garantice la trazabilidad sanitaria exigida por el INVIMA sin detener la producción.
 
-## 1. El Problema Hoy (En lenguaje de negocio)
+## Vistas Arquitectónicas Cubiertas
 
-Insuclínicos Ltda. fabrica y comercializa ropa e insumos médicos quirúrgicos desechables en tela SMS para cerca de **40 clínicas, spas y centros estéticos** en Bogotá con un equipo de **6 trabajadores**. Hoy la operación enfrenta cuatro cuellos de botella críticos:
+| Vista | Alcance de la Solución |
+|---|---|
+| **Procesos de Negocio** | Modelado BPMN AS-IS del subproceso de Producción (4 roles funcionales, gateways de inventario y calidad, ciclo de reproceso) y flujo TO-BE integrado de ventas a remisión sin papel (`01-bpmn/`, `07-opportunities-solutions/`). |
+| **Información / Datos** | Modelo Entidad-Relación de 8 entidades nucleares (`CLIENTE`, `PEDIDO`, `DETALLE_PEDIDO`, `PRODUCTO`, `ORDEN_PRODUCCION`, `CONSUMO_MATERIA_PRIMA`, `MATERIA_PRIMA`, `DESPACHO`) extendido en TO-BE con `lote_sms_invima`, consentimiento Ley 1581 y `BITACORA_AUDITORIA` (`02-modelo-informacion/`, `08-integracion-vistas/`). |
+| **Aplicaciones / Sistemas** | Contexto C1 y Contenedores C2 AS-IS sobre ecosistema *Shadow IT* (2 Excels desconectados + WhatsApp + papel + portal DIAN) y diseño TO-BE basado en **CRM/ERP Ligero Cloud (Odoo/Dolibarr sobre PostgreSQL)** + exportador CSV DIAN + Tablet Web (`03-arquitectura-c4/`, `07-opportunities-solutions/`). |
+| **Infraestructura** | Mapa físico AS-IS de 3 zonas (Nube externa, Red Local LAN, Planta) con identificación de SPOF en disco local, evolucionado a infraestructura Cloud gestionada Multi-AZ con bóveda de backup 3-2-1, enlace móvil 4G/5G de contingencia y Wi-Fi WPA3 en planta (`04-infraestructura/`, `07-opportunities-solutions/`). |
+| **Seguridad** | Evaluación de 6 amenazas STRIDE (`T1`–`T6`: suplantación, alteración de fórmulas, repudio sin logs, fuga por USB/chat, ransomware/SPOF, permisos abiertos SMB) y controles integrados RBAC, bloqueo automático, cifrado TLS 1.3/AES-256 y bitácora inmutable (`05-seguridad-stride/`). |
+| **Cumplimiento Normativo** | Auditoría de 15 criterios frente a **INVIMA** (Decreto 4725/2005 y Resolución 4816/2008 Tecnovigilancia), **Ley 1581 de 2012** (Habeas Data y derechos ARCO), **DIAN** (Resolución 000165/2023) e **ISO/IEC 27001:2022** (`06-normatividad/`). |
+| **Integración y Gobernanza** | Tablero vertical integrado de 5 capas y 3 hilos *end-to-end*, matriz consolidada de riesgos en 7 dominios, vistas ArchiMate de Motivación y Migración, 3 principios rectores, 3 métricas de gobierno y 2 ADR registradas (`08-integracion-vistas/`, `09-presentacion-final/`). |
 
-1. **Pedidos e inventario desconectados:** Las cotizaciones y pedidos se llevan en un archivo de Excel y el inventario de tela quirúrgica en otro. Esto consume **~6 horas semanales** de conciliación manual y provoca compromisos de entrega sobre inventario que no está disponible.
-2. **Bloqueos diarios y doble digitación:** Cuando el área comercial y el almacén abren los archivos de Excel al mismo tiempo en la red local, el archivo se bloquea en modo *"Solo lectura"*. Además, cada venta debe volverse a digitar manualmente en el portal de Facturación Electrónica de la DIAN, y las órdenes de producción se llevan en papel físico hasta la planta.
-3. **Riesgo de pérdida total de la información:** Toda la operación vive en el disco duro de un computador de oficina sin copias de seguridad automáticas en la nube y con sesiones de usuario compartidas. Un daño físico del computador o un virus detendría la empresa por completo.
-4. **Exposición ante el INVIMA y la Ley de Protección de Datos:** Hoy no queda registrado en sistema qué lote de rollo de tela quirúrgica SMS se utilizó para fabricar las prendas entregadas en cada remisión (exigencia sanitaria del **Decreto 4725 de 2005** y **Resolución 4816 de 2008**), ni se solicita autorización formal de tratamiento de datos personales (**Ley 1581 de 2012**) al atender clientes por WhatsApp.
+## Hallazgos Clave
 
----
+- **Silos de Excel y bloqueos diarios de concurrencia:** La operación depende de `Libro de Pedidos y Cotizaciones.xlsx` y `Libro de Control de Inventario.xlsx` desconectados en LAN, provocando **2 a 3 bloqueos diarios** de *"Solo lectura"*, desfase de inventario de rollos SMS y **~6 horas semanales** perdidas en conciliación manual y redigitación hacia el portal de facturación DIAN.
+- **Riesgo crítico de pérdida total (SPOF) e inseguridad operativa:** El 100 % de los datos reside en un único disco duro local sin respaldos automáticos 3-2-1 (`T5` Nivel `8`), con sesiones genéricas compartidas en Windows (`T1`), carpetas SMB abiertas (`T6`), fórmulas de precios/stock editables sin registro histórico de autoría (`T2`/`T3` Nivel `9`) y riesgo de extracción de la cartera de ~40 clínicas vía USB (`T4`).
+- **Exposición regulatoria INVIMA y Ley 1581 (`2 / 15` criterios cumplidos en AS-IS):** Aunque Insuclínicos cumple con facturación electrónica DIAN y conservación contable, carece de vínculo sistematizado entre el lote del rollo SMS del proveedor y la remisión entregada a cada clínica (exigencia sanitaria de Tecnovigilancia INVIMA), y capta contactos por WhatsApp sin aviso ni registro de autorización de datos personales (Ley 1581).
 
-## 2. Nuestra Propuesta (Qué cambia y por qué)
+## Recomendaciones Principales
 
-En lugar de adquirir software costoso o desarrollar un sistema desde cero que tardaría meses, proponemos una transformación práctica en **tres paquetes de trabajo** dentro del presupuesto de una PyME (`~ $2.200.000 COP/año`), que reemplaza los archivos sueltos de Excel por un **sistema web ligero y centralizado en la nube (CRM/ERP como Odoo o Dolibarr Cloud)**:
+- **Asegurar continuidad inmediata y cumplimiento Habeas Data (`WP1`):** Activar copias diarias automatizadas bajo regla **3-2-1** en nube cifrada, crear 6 perfiles nominales de usuario con bloqueo a los 5 min, cerrar carpetas SMB/puertos USB e implementar respuesta automática con aviso **Ley 1581** en WhatsApp Business y buzón ARCO (`contacto@insuclinicos.com`).
+- **Adoptar CRM/ERP ligero en la nube con PostgreSQL y exportador CSV DIAN (`WP2-A` y `WP2-B`):** Seleccionado en la matriz ponderada de 8 pasos (`4.40 / 5.00`, `~$2.200.000 COP/año`, frente a `$15M+` de desarrollo a medida y descarte de OneDrive por no garantizar trazabilidad INVIMA `C1 < 3`). Unifica pedidos e inventario sin bloqueos, protege precios con RBAC/bitácora `audit_log` y suprime la doble digitación fiscal.
+- **Digitalizar planta e integrar trazabilidad sanitaria INVIMA (`WP3`):** Desplegar una **Tablet Web** sobre Wi-Fi WPA3 en corte y confección que impida cerrar órdenes sin registrar `lote_sms_invima` e imprima el lote automáticamente en la **Remisión Digital PDF**, elevando las 6 capacidades clave del negocio de madurez `1–3` a `4 / 5`.
 
-- **Un solo lugar para clientes, pedidos e inventario:** Cuando Ventas aprueba un pedido, el sistema descuenta o reserva automáticamente la tela quirúrgica y las prendas en bodega, sin bloqueos de archivo.
-- **Trazabilidad sanitaria INVIMA de punta a punta:** Desde una **Tablet en la planta de producción**, los operarios consultan las órdenes pendientes sin usar papel y registran el número de lote del rollo SMS empleado, el cual queda impreso automáticamente en la remisión digital del cliente.
-- **Facturación sin volver a digitar:** El pedido aprobado se exporta en formato listo para cargar en la plataforma de Facturación Electrónica DIAN.
-- **Información protegida y respaldada todos los días:** Cada uno de los 6 empleados ingresa con su propio usuario según su rol, y la base de datos realiza copias de seguridad automáticas diarias en la nube.
+## Plan de Implementación (resumen)
 
----
+El despliegue se secuencia en **4 fases ejecutables durante 12 semanas** cruzando prioridad de riesgo con esfuerzo real e incorporando gestión del cambio sobre los 6 empleados, de forma que la operación no se detenga:
 
-## 3. Plan de Implementación en 3 Fases (12 Semanas)
+| Fase | Qué se implementa | Duración estimada |
+|---|---|---|
+| **Quick win** (`WP1`) | Backups automáticos 3-2-1 en nube, 6 cuentas nominales Windows, cierre de SMB/USB y aviso automático Ley 1581 en WhatsApp Business + buzón ARCO. | Semanas 1–2 (14 días) |
+| **Corto plazo** (`WP2-A`) | Aprovisionamiento Cloud de CRM/ERP y PostgreSQL Multi-AZ, saneamiento/deduplicación del catálogo de ~40 clínicas y saldos SMS, y mapeo del archivo CSV DIAN. | Semanas 3–4 (14 días) |
+| **Mediano plazo** (`WP2-B`) | Despliegue en producción del CRM/ERP Cloud (Comercial, Inventario concurrente, RBAC, `audit_log`), exportador CSV hacia DIAN y marcha blanca paralela retirando Excel. | Semanas 5–8 (28 días) |
+| **Largo plazo** (`WP3`) | Cobertura Wi-Fi WPA3 en planta, Tablet Web de confección/calidad con registro obligatorio de `lote_sms_invima` y generación automática de Remisión Digital PDF. | Semanas 9–12 (28 días) |
 
-| Fase / Paquete de Trabajo | Duración | Qué se entrega al negocio | Beneficio inmediato |
-|---|---|---|---|
-| **Fase 1 (`WP1` — Quick Win): Continuidad, Seguridad Base y Ley 1581** | **Semanas 1 a 2** | • Copias de seguridad automáticas diarias en la nube (Regla 3-2-1).<br>• Usuarios individuales con contraseña en los equipos de oficina.<br>• Mensaje automático de aviso de privacidad (Ley 1581) en WhatsApp Business. | Elimina en 15 días el riesgo de perder toda la información de la empresa y blinda legalmente el canal comercial de WhatsApp. |
-| **Fase 2 (`WP2` — Núcleo): Sistema Centralizado CRM/ERP en la Nube y Facturación** | **Semanas 3 a 8** | • Puesta en marcha del CRM/ERP web con base de datos centralizada.<br>• Migración del catálogo de productos y de las ~40 clínicas.<br>• Exportador directo hacia Facturación Electrónica DIAN. | Elimina los bloqueos de Excel, ahorra ~6 horas semanales de reprocesos administrativos y evita pérdidas inexplicables de insumos. |
-| **Fase 3 (`WP3` — Planta): Digitalización de Producción y Lotes INVIMA** | **Semanas 9 a 12** | • Tablet conectada por Wi-Fi seguro en la planta de corte y confección.<br>• Registro obligatorio del lote de tela SMS en cada orden y remisión digital. | Cero papel hacia la planta, visibilidad en vivo del estado de cada pedido y cumplimiento ante visitas de tecnovigilancia del INVIMA. |
+_Ver el detalle completo, con la relación de cada fase a los riesgos identificados en el curso y la gestión del cambio con las personas, en [`09-presentacion-final/plan-implementacion.md`](09-presentacion-final/plan-implementacion.md)._
 
----
+## Reflexión Final
 
-## 4. Evolución de las Capacidades de Insuclínicos Ltda.
-
-| Capacidad del Negocio | Estado Hoy (1 a 5) | Estado con la Propuesta (1 a 5) | Qué gana Insuclínicos Ltda. |
-|---|:---:|:---:|---|
-| **Gestionar pedidos y cotizaciones comerciales** | 2 / 5 | **4 / 5** | Cotizaciones rápidas con validación real de existencias y cumplimiento de Habeas Data. |
-| **Controlar inventarios e insumos quirúrgicos** | 1 / 5 | **4 / 5** | Existencias exactas de rollos SMS en tiempo real, sin archivos bloqueados y con historial de quién hizo cada ajuste. |
-| **Planificar y ejecutar la producción quirúrgica** | 2 / 5 | **4 / 5** | Órdenes digitales en pantalla desde la planta sin depender de hojas impresas. |
-| **Asegurar la calidad y trazabilidad sanitaria** | 1 / 5 | **4 / 5** | Capacidad de rastrear en minutos qué lote de tela se entregó a cada clínica ante el INVIMA. |
-| **Facturar y recaudar ventas** | 3 / 5 | **4 / 5** | Emisión ágil de facturas electrónicas sin transcripción manual. |
-| **Asegurar la continuidad y seguridad de la información** | 1 / 5 | **4 / 5** | Negocio protegido contra daños de computadores, robo de datos o *ransomware*. |
+Este ejercicio permitió al Grupo 8 aplicar de manera práctica los principios y métodos de la arquitectura empresarial sobre una PyME manufacturera real del sector salud en Colombia (**Insuclínicos Ltda.**), demostrando que la transformación tecnológica no consiste en proponer herramientas costosas ni reescribir sistemas desde cero, sino en conectar los dolores operativos, la regulación sanitaria y fiscal, el control de riesgos de seguridad y la gestión del cambio humano en una hoja de ruta financieramente viable y gobernable en el tiempo.
 
 ---
 
-> 📂 Para consultar las matrices detalladas, presupuestos comparativos y diagramas técnicos de esta propuesta, diríjase a [`07-opportunities-solutions/mejora-arquitectura.md`](07-opportunities-solutions/mejora-arquitectura.md) y [`07-opportunities-solutions/matriz-brechas.xlsx`](07-opportunities-solutions/matriz-brechas.xlsx).
+_Este resumen ejecutivo forma parte de la entrega final del curso AREM - Arquitectura Empresarial - Universidad de La Sabana._
